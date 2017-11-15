@@ -15,6 +15,4 @@ export const store = createStore(
   )
 )
 
-export const actions = {
-  mainPage: mainPage.actions
-}
+export const actions = mainPage.actions
