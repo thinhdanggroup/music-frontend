@@ -4,7 +4,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        ALO
+        MAIN PAGE
       </div>
     )
   }

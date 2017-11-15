@@ -2,15 +2,31 @@ import React, { Component } from 'react'
 import * as redux from '../redux'
 
 class BaiHat extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      baiHat: null
+    };
+
+    this.afterGetBaiHat = this.afterGetBaiHat.bind(this)
+  }
+
+  componentWillMount() {
+    redux.actions.getBaiHatById(this.props.match.params.idBaiHat, this.afterGetBaiHat)
+  }
+
   render() {
-    redux.actions.getBaiHatById(this.props.match.params.idBaiHat, function (res) {
-      console.log(res)
-    })
+    console.log(this.state.baiHat)
     return (
       <div>
-        {this.props.match.params.idBaiHat}
+        BAI HAT PAGE
       </div>
     )
+  }
+
+  afterGetBaiHat(baiHat) {
+    this.setState({ baiHat: baiHat })
   }
 }
 
