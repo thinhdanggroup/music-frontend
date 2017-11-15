@@ -17,6 +17,10 @@ export default class App extends Component {
               exact={true}
               path={routingPath.MAIN_PAGE}
               component={pages.Main} />
+            <Route
+              exact={true}
+              path={routingPath.BAI_HAT}
+              component={pages.BaiHat} />
           </Switch>
         </BrowserRouter>
       </Provider>

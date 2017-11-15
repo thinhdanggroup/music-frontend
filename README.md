@@ -11,4 +11,5 @@
     npm start
     ```
 
-https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+React VSC: https://code.visualstudio.com/docs/nodejs/reactjs-tutorial
+React router: https://jaketrent.com/post/access-route-params-react-router-v4/
