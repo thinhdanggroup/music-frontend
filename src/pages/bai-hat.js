@@ -15,7 +15,9 @@ class BaiHat extends Component {
   }
 
   componentWillMount() {
-    redux.actions.getBaiHatById(this.props.match.params.idBaiHat, this.afterGetBaiHat)
+    const { idBaiHat } = this.props.match.params
+
+    redux.actions.getBaiHatById(idBaiHat, this.afterGetBaiHat)
   }
 
   render() {

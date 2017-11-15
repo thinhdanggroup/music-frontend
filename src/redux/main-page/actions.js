@@ -29,3 +29,13 @@ export function getInfoForPersonalPage(email, then) {
     }
   }).then(then)
 }
+
+export function getAlbumById(idAlbum, then) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getAlbumById('${idAlbum}')`
+    }
+  }).then(then)
+}

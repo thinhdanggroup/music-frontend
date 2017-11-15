@@ -25,6 +25,10 @@ export default class App extends Component {
               exact={true}
               path={routingPath.CA_NHAN}
               component={pages.CaNhan} />
+            <Route
+              exact={true}
+              path={routingPath.ALBUM}
+              component={pages.Album} />
           </Switch>
         </BrowserRouter>
       </Provider>
