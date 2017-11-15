@@ -25,16 +25,17 @@ class Album extends Component {
 
   render() {
     console.log(this.state.baiHats);
-    // const listItem = this.state.baiHats.map((value,index) =>
-    //  (
-    //    <li key={index}> {value.ID} </li>
-    //  )
-    // );
+    const a = this.state.baiHats;
+    var listItems = <li> chua co thong tin </li>
+    if (a != null ){
+      listItems = a.map((value,index) => 
+      <li key={index}> ID bai hat: {value.ID} va Luot view: {value.LUOT_VIEW} </li>);
+    }
     return (
       <div>
         <p> Ten Album : {this.state.ten} </p>
         <p> Thong tin : {this.state.moTa} </p>
-    
+        <p> {listItems} </p>
       </div>
     )
   }
