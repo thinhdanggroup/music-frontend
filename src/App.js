@@ -6,11 +6,12 @@ import * as pages from './pages'
 import * as routingPath from './routing-path'
 
 import * as redux from './redux'
+import configureStore from './store/configureStore';
 
 export default class App extends Component {
   render() {
     return (
-      <Provider store={redux.store}>
+      <Provider store={configureStore()}>
         <BrowserRouter>
           <Switch>
             <Route
