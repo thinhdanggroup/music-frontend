@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 
 import * as pages from './pages'
+import * as containers from './containers'
 import * as routingPath from './routing-path'
 
 import * as redux from './redux'
@@ -21,7 +22,7 @@ export default class App extends Component {
             <Route
               exact={true}
               path={routingPath.BAI_HAT}
-              component={pages.BaiHat} />
+              component={containers.SongContainer} />
             <Route
               exact={true}
               path={routingPath.CA_NHAN}
