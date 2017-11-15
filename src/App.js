@@ -21,6 +21,10 @@ export default class App extends Component {
               exact={true}
               path={routingPath.BAI_HAT}
               component={pages.BaiHat} />
+            <Route
+              exact={true}
+              path={routingPath.CA_NHAN}
+              component={pages.CaNhan} />
           </Switch>
         </BrowserRouter>
       </Provider>

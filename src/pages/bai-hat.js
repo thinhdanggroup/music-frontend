@@ -5,9 +5,11 @@ class BaiHat extends Component {
   constructor(props) {
     super(props);
 
+    this.props.email = 'garen@gmail.com'
+
     this.state = {
       baiHat: null
-    };
+    }
 
     this.afterGetBaiHat = this.afterGetBaiHat.bind(this)
   }

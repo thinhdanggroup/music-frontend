@@ -15,7 +15,17 @@ export function getBaiHatById(idBaiHat, then) {
     method: 'post',
     url: `${backendInfo.url}/query-db`,
     data: {
-      query: `SELECT * FROM getBaiHatById('${idBaiHat}')`
+      query: `SELECT getBaiHatById('${idBaiHat}')`
+    }
+  }).then(then)
+}
+
+export function getInfoForPersonalPage(email, then) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getInfoForPersonalPage('${email}')`
     }
   }).then(then)
 }
