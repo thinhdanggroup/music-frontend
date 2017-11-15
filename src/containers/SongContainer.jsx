@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import Song from '../components/Song';
 
 import fetchSongIfNeeded from '../actions/SongActions';
-import { playSong } from '../actions/PlayerActions';
+// import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
-import { login, toggleLike } from '../actions/SessionActions';
+// import { login, toggleLike } from '../actions/SessionActions';
 
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getComments, getPlaylist, getSong, getSongs, getTimed } from '../selectors/SongSelectors';
@@ -27,16 +27,15 @@ const mapStateToProps = (state) => {
     playlists,
     sidebarHeight: getSidebarHeight(state),
     song: getSong(state),
-    // songs: getSongs(state),
-    // timed: getTimed(state),
-    timed: null,
+    songs: getSongs(state),
+    timed: getTimed(state),
   };
 };
 
 export default connect(mapStateToProps, {
   fetchSongIfNeeded,
-  login,
+  // login,
   navigateTo,
-  playSong,
-  toggleLike,
+  // playSong,
+  // toggleLike,
 })(SongContainer);

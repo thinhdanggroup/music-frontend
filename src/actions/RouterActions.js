@@ -1,5 +1,6 @@
 /* global history */
 /* global location */
+/* eslint no-restricted-globals: ["off", "location"] */
 /* global window */
 import { CHANGE_ROUTE } from '../constants/ActionTypes';
 import { compileHash, parseRoute } from '../utils/RouterUtils';

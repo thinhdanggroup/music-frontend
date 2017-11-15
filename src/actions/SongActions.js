@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 import { fetchSongs, fetchSongsSuccess } from '../actions/PlaylistActions';
 import * as types from '../constants/ActionTypes';
-import { SONG_URL, SONG_COMMENTS_URL, USER_SONGS_URL } from '../constants/ApiConstants';
+import { QUERY_DB_URL } from '../constants/ApiConstants';
 import { songSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
@@ -15,7 +15,7 @@ const fetchSongCommentsSuccess = (id, comments) => ({
 });
 
 const fetchSongComments = id => async (dispatch) => {
-  const { json } = await callApi(SONG_COMMENTS_URL.replace(':id', id));
+  const { json } = await callApi(QUERY_DB_URL);
   const comments = json
     .map(comment => ({
       ...comment,
@@ -27,13 +27,13 @@ const fetchSongComments = id => async (dispatch) => {
 };
 
 const fetchSong = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi(SONG_URL.replace(':id', id));
+  const { json } = await callApi(QUERY_DB_URL);
   const { userId } = json;
 
-  const { entities, result } = normalize(json, songSchema);
-  dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));
-  dispatch(fetchSongComments(id));
-  dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', userId)));
+  // const { entities, result } = normalize(json, songSchema);
+  // dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));
+  // dispatch(fetchSongComments(id));
+  // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', userId)));
 };
 
 const shouldFetchSong = (id, state) => {
