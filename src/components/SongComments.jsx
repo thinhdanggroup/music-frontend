@@ -23,17 +23,17 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed }
       <div className="sidebar__header__left">
         Comments
       </div>
-      <div className="sidebar__header__right">
-        {/* <Switch
-          args={[{
-            path: SONG_PATH,
-            keys: { id },
-            options: timed ? {} : { timed: '1' },
-          }]}
-          on={timed}
-          onClick={navigateTo}
-        /> */}
-      </div>
+      {/* <div className="sidebar__header__right">
+          <Switch
+            args={[{
+              path: SONG_PATH,
+              keys: { id },
+              options: timed ? {} : { timed: '1' },
+            }]}
+            on={timed}
+            onClick={navigateTo}
+          />
+        </div> */}
     </div>
     <SidebarBody>
       {comments.map((comment, i) => (

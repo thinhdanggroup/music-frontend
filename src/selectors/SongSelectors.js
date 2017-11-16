@@ -47,11 +47,11 @@ export const getComments = createSelector(
   getSongComments,
   getCurrentTime,
   (isActive, timed, comments, currentTime) => {
-    if (isActive && timed) {
-      const start = currentTime - (currentTime % 10);
-      const end = start + 10;
-      return comments.filter(({ unixTimestamp }) => unixTimestamp >= start && unixTimestamp < end);
-    }
+    // if (isActive && timed) {
+    //   const start = currentTime - (currentTime % 10);
+    //   const end = start + 10;
+    //   return comments.filter(({ unixTimestamp }) => unixTimestamp >= start && unixTimestamp < end);
+    // }
 
     return comments;
   },
