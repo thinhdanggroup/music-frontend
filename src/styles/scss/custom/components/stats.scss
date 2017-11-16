@@ -5,7 +5,7 @@
 
 .stats__stat {
   color: $gray;
-  font-size: 15px;
+  font-size: 11px;
 
   & + .stats__stat {
     margin-left: 20px;
@@ -28,7 +28,7 @@
   }
 
   .heart__icon {
-    font-size: 15px;
+    font-size: 11px;
   }
 
   .heart__count {
