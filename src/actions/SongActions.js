@@ -8,7 +8,6 @@ import { callApi } from '../utils/ApiUtils';
 const fetchSong = (id, playlist) => async (dispatch) => {
   let { json } = await callApi(`SELECT getBaiHatById('${id}')`);
   json = json.data.getbaihatbyid
-  json.comments = json.comments.sort((a, b) => b.timestamp - a.timestamp);
 
   const result = id;
   const entities = {
