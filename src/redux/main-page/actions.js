@@ -39,3 +39,13 @@ export function getAlbumById(idAlbum, then) {
     }
   }).then(then)
 }
+
+export function postComment(email,noiDung,idBaiHat,then) {
+  axios({
+    method:'post',
+    url: `${backendInfo.url}/query-db`,
+    data:{
+      query: `SELECT postComment('${email}','${noiDung}','${idBaiHat}')`
+    }
+  }).then(then)
+}

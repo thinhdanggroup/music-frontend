@@ -1,6 +1,60 @@
 import React, { Component } from 'react'
 import * as redux from '../redux'
+class CommentForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      idBaiHat: '0000001',
+      email: 'Garen@gmail.com',
+      comment: ''};
 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.postComment = this.postComment.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    // alert('A name was submitted: ' + this.state.value + this.state.idBaiHat + this.state.email);
+    redux.actions.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString(),this.postComment);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Comment:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <p> {this.state.comment} </p>
+      </form>
+    );
+  }
+  postComment(res) {
+    // console.log(res)
+    if (res.data.status === "Success")
+    {
+      this.setState ({
+        comment: this.state.value
+      });
+    }
+    else {
+      if (res.data.data.code === '22000')
+      {
+        alert("Khong chuoi the nhe");
+      }
+    }
+    // this.setState ({
+    //   comment : noiDung
+    // })
+  }
+}
 class Album extends Component {
   constructor(props) {
     super(props);
@@ -36,6 +90,7 @@ class Album extends Component {
         <p> Ten Album : {this.state.ten} </p>
         <p> Thong tin : {this.state.moTa} </p>
         <p> {listItems} </p>
+        <CommentForm />
       </div>
     )
   }
@@ -55,5 +110,7 @@ class Album extends Component {
     
   }
 }
+
+
 
 export default Album
