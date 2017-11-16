@@ -27,7 +27,7 @@ const fetchSongComments = id => async (dispatch) => {
 };
 
 const fetchSong = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi(QUERY_DB_URL);
+  const { json } = await callApi(id);
   const { userId } = json;
 
   // const { entities, result } = normalize(json, songSchema);

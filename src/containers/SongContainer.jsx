@@ -32,10 +32,14 @@ const mapStateToProps = (state) => {
   };
 };
 
+const login = () => { }
+const playSong = () => { }
+const toggleLike = () => { }
+
 export default connect(mapStateToProps, {
   fetchSongIfNeeded,
-  // login,
+  login,
   navigateTo,
-  // playSong,
-  // toggleLike,
+  playSong,
+  toggleLike,
 })(SongContainer);
