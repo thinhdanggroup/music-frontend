@@ -4,6 +4,10 @@ const getImageUrl = (s, size = null) => {
   if (!s) {
     return '';
   }
+  // TODO
+  // else {
+  // return path to default image
+  // }
 
   const url = s.replace('http:', '');
 
