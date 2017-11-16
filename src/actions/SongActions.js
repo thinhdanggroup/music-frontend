@@ -21,7 +21,7 @@ const fetchSong = (id, playlist) => async (dispatch) => {
 
   const { entities, result } = normalize(json, songSchema);
   // dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));
-  const comments = json.comments.sort((a, b) => a.timestamp - b.timestamp);
+  const comments = json.comments.sort((a, b) => b.timestamp - a.timestamp);
 
   dispatch(fetchSongCommentsSuccess(id, comments));
   // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', userId)));
