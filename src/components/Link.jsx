@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-// import { compileHash } from '../utils/RouterUtils';
+import { compileHash } from '../utils/RouterUtils';
 
 const defaultProps = {
   className: '',
@@ -42,7 +42,7 @@ class Link extends Component {
     return (
       <a
         className={className}
-        // href={`/${compileHash({ path, keys, options })}`}
+        href={`/${compileHash({ path, keys, options })}`}
         onClick={this.onClick}
         title={title}
       >
