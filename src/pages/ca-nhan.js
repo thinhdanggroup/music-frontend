@@ -13,11 +13,11 @@ class CaNhan extends Component {
       rates: null
     }
 
-    this.afterGetInfo = this.afterGetInfo.bind(this)
+    this.afterGetMemberInfo = this.afterGetMemberInfo.bind(this)
   }
 
   componentWillMount() {
-    redux.actions.getInfoForPersonalPage(this.state.email, this.afterGetInfo)
+    redux.actions.getInfoForPersonalPage(this.state.email, this.afterGetMemberInfo)
   }
 
   render() {
@@ -53,7 +53,7 @@ class CaNhan extends Component {
     )
   }
 
-  afterGetInfo(info) {
+  afterGetMemberInfo(info) {
     console.log(info)
     const infoData = info.data.data.getinfoforpersonalpage
     this.setState({
