@@ -3,18 +3,18 @@ import React from 'react';
 import { addCommas } from '../utils/NumberUtils';
 
 const defaultProps = {
-  favoritingsCount: null,
+  ratingCount: null,
 };
 
 const propTypes = {
-  favoritingsCount: PropTypes.number,
+  ratingCount: PropTypes.number,
 };
 
-const HeartCount = ({ favoritingsCount }) => {
-  if (favoritingsCount) {
+const HeartCount = ({ ratingCount }) => {
+  if (ratingCount) {
     return (
       <div className="heart__count">
-        {addCommas(favoritingsCount)}
+        {addCommas(ratingCount)}
       </div>
     );
   }

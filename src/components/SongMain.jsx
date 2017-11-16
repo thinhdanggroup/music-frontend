@@ -38,7 +38,7 @@ const SongMain = ({
     artworkUrl,
     commentCount,
     description,
-    favoritingsCount,
+    ratingCount,
     id,
     playbackCount,
     user,
@@ -85,7 +85,7 @@ const SongMain = ({
         <Stats
           className="song-main__stats"
           commentCount={commentCount}
-          favoritingsCount={favoritingsCount}
+          ratingCount={ratingCount}
           id={id}
           isAuthenticated={isAuthenticated}
           liked={liked}

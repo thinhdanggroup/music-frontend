@@ -36,7 +36,7 @@ const SongListItem = ({
   toggleLike,
 }) => {
   const { isPlaying } = player;
-  const { artworkUrl, commentCount, favoritingsCount, id, playbackCount, title, user } = song;
+  const { artworkUrl, commentCount, ratingCount, id, playbackCount, title, user } = song;
   const { avatarUrl, username } = user;
 
   return (
@@ -84,7 +84,7 @@ const SongListItem = ({
           <Stats
             className="song-list__item__stats"
             commentCount={commentCount}
-            favoritingsCount={favoritingsCount}
+            ratingCount={ratingCount}
             id={id}
             isAuthenticated={isAuthenticated}
             liked={liked}

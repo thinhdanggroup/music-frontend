@@ -10,7 +10,7 @@ const defaultProps = {
 const propTypes = {
   className: PropTypes.string,
   commentCount: PropTypes.number.isRequired,
-  favoritingsCount: PropTypes.number.isRequired,
+  ratingCount: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   liked: PropTypes.bool.isRequired,
@@ -24,7 +24,7 @@ const Stats = ({
   commentCount,
   id,
   isAuthenticated,
-  favoritingsCount,
+  ratingCount,
   liked,
   login,
   playbackCount,
@@ -33,7 +33,7 @@ const Stats = ({
     <div className={`stats ${className}`}>
       <Heart
         className="stats__stat stats__stat--heart"
-        favoritingsCount={favoritingsCount}
+        ratingCount={ratingCount}
         id={id}
         isAuthenticated={isAuthenticated}
         liked={liked}

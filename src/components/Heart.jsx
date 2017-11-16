@@ -6,12 +6,12 @@ import HeartCount from '../components/HeartCount';
 
 const defaultProps = {
   className: '',
-  favoritingsCount: null,
+  ratingCount: null,
 };
 
 const propTypes = {
   className: PropTypes.string,
-  favoritingsCount: PropTypes.number,
+  ratingCount: PropTypes.number,
   id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   liked: PropTypes.bool.isRequired,
@@ -31,13 +31,13 @@ class Heart extends Component {
   }
 
   render() {
-    const { className, favoritingsCount, isAuthenticated, liked, login } = this.props;
+    const { className, ratingCount, isAuthenticated, liked, login } = this.props;
     if (!isAuthenticated) {
       // return (
       //   <Popover className={`heart ${className}`} >
       //     <div className="heart__inner">
       //       <i className="heart__icon ion-ios-heart" />
-      //       <HeartCount favoritingsCount={favoritingsCount} />
+      //       <HeartCount ratingCount={ratingCount} />
       //     </div>
       //     <LoginPopoverPanel login={login} />
       //   </Popover>
@@ -53,7 +53,7 @@ class Heart extends Component {
           tabIndex="0"
         >
           <i className="heart__icon ion-ios-heart" />
-          <HeartCount favoritingsCount={favoritingsCount} />
+          <HeartCount ratingCount={ratingCount} />
         </div>
       </div>
     );
