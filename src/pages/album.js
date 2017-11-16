@@ -40,14 +40,19 @@ class Album extends Component {
     )
   }
   afterGetAlbum(albumID) {
-    this.setState(
-      { 
-        moTa: albumID.data.data.getalbumbyid.MO_TA,
-        namPhatHanh: albumID.data.data.getalbumbyid.NAM_PHAT_HANH,
-        ten: albumID.data.data.getalbumbyid.TEN,
-        baiHats: albumID.data.data.getalbumbyid.baiHats,
-        ngheSiPHs: albumID.data.data.getalbumbyid.ngheSiPHs
-      })
+    console.log(albumID.data.status)
+    if (albumID.data.status === 'Success') {
+      this.setState(
+        { 
+          moTa: albumID.data.data.getalbumbyid.MO_TA,
+          namPhatHanh: albumID.data.data.getalbumbyid.NAM_PHAT_HANH,
+          ten: albumID.data.data.getalbumbyid.TEN,
+          baiHats: albumID.data.data.getalbumbyid.baiHats,
+          ngheSiPHs: albumID.data.data.getalbumbyid.ngheSiPHs
+        });
+      }
+
+    
   }
 }
 
