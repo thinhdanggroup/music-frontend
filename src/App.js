@@ -27,6 +27,10 @@ export default class App extends Component {
               component={pages.CaNhan} />
             <Route
               exact={true}
+              path={routingPath.PLAYLIST}
+              component={pages.Playlist} />
+            <Route
+              exact={true}
               path={routingPath.ALBUM}
               component={pages.Album} />
           </Switch>

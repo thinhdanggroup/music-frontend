@@ -30,6 +30,16 @@ export function getInfoForPersonalPage(email, then) {
   }).then(then)
 }
 
+export function getInfoForPlaylistPage(name, email, then) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getInfoForPlaylistPage('${name}','${email}')`
+    }
+  }).then(then)
+}
+
 export function getAlbumById(idAlbum, then) {
   axios({
     method: 'post',
@@ -40,21 +50,21 @@ export function getAlbumById(idAlbum, then) {
   }).then(then)
 }
 
-export function postComment(email,noiDung,idBaiHat,then) {
+export function postComment(email, noiDung, idBaiHat, then) {
   axios({
-    method:'post',
+    method: 'post',
     url: `${backendInfo.url}/query-db`,
-    data:{
+    data: {
       query: `SELECT postComment('${email}','${noiDung}','${idBaiHat}')`
     }
   }).then(then)
 }
 
-export function ratingBH(email,idBaiHat,soSao,then) {
+export function ratingBH(email, idBaiHat, soSao, then) {
   axios({
-    method:'post',
-    url:`${backendInfo.url}/query-db`,
-    data:{
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
       query: `SELECT rateBaiHat('${email}','${idBaiHat}','${soSao}')`
     }
   }).then(then)
