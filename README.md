@@ -6,6 +6,10 @@
     ```shell
     npm install
     ```
+1. Compile scss to css
+    ```shell
+    npm run build-css
+    ```
 1. Run server
     ```shell
     npm start
