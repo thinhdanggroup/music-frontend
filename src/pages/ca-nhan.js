@@ -5,18 +5,16 @@ class CaNhan extends Component {
   constructor(props) {
     super(props);
 
-    this.email = 'garen@gmail.com'
-    console.log(this.email)
-
     this.state = {
+      email: 'garen@gmail.com',
       info: null
-    };
+    }
 
     this.afterGetInfo = this.afterGetInfo.bind(this)
   }
 
   componentWillMount() {
-    redux.actions.getInfoForPersonalPage(this.props.email, this.afterGetInfo)
+    redux.actions.getInfoForPersonalPage(this.state.email, this.afterGetInfo)
   }
 
   render() {
