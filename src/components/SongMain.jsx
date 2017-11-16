@@ -42,6 +42,7 @@ const SongMain = ({
     id,
     playbackCount,
     user,
+    title,
   } = song;
   // const { avatarUrl, username } = user;
 
@@ -65,7 +66,7 @@ const SongMain = ({
       </div>
       <div className="song-main__main">
         <div className="song-main__title">
-          {song.title}
+          {title}
         </div>
         {/* <div className="song-main__user">
           <div
