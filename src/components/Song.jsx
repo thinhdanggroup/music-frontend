@@ -15,7 +15,8 @@ const defaultProps = {
 const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchSongIfNeeded: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   likes: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,

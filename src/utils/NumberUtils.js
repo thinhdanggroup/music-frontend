@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const addCommas = (i) => {
   if (i === null || i === undefined) {
     return '';
@@ -14,8 +16,6 @@ const padZero = (num, size) => {
   return s;
 };
 
-export const formatSeconds = (num) => {
-  const minutes = padZero(Math.floor(num / 60), 2);
-  const seconds = padZero(num % 60, 2);
-  return `${minutes}:${seconds}`;
-};
+export const formatSeconds = (timestamp) => {
+  return moment(timestamp).format("DD.MM.YYYY hh:mm:ss")
+}

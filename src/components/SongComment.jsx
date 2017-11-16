@@ -10,8 +10,8 @@ const propTypes = {
 };
 
 const SongComment = ({ comment, index }) => {
-  const { body, unixTimestamp, user } = comment;
-  const { avatarUrl, username } = user;
+  const { body, timestamp, email } = comment;
+  const { avatarUrl, username } = email;
 
   return (
     <div className="song-comment" style={{ animationDelay: `${index * 50}ms` }}>
@@ -23,12 +23,12 @@ const SongComment = ({ comment, index }) => {
         <div className="song-comment__body">
           {body}
         </div>
-        <div className="song-comment__username">
-          {username}
+        <div className="song-comment__email">
+          {email}
         </div>
       </div>
       <div className="song-comment__time">
-        {formatSeconds(unixTimestamp)}
+        {formatSeconds(timestamp)}
       </div>
     </div>
   );

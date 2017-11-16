@@ -14,25 +14,16 @@ const fetchSongCommentsSuccess = (id, comments) => ({
   },
 });
 
-const fetchSongComments = id => async (dispatch) => {
-  const { json } = await callApi(QUERY_DB_URL);
-  const comments = json
-    .map(comment => ({
-      ...comment,
-      unixTimestamp: Math.floor(comment.timestamp / 1000),
-    }))
-    .sort((a, b) => a.timestamp - b.timestamp);
+const fetchSong = (id, playlist) => async (dispatch) => {
+  let { json } = await callApi(`SELECT getBaiHatById('${id}')`);
+  json = json.data.getbaihatbyid
+  // const { userId } = json;
+
+  const { entities, result } = normalize(json, songSchema);
+  // dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));
+  const comments = json.comments.sort((a, b) => a.timestamp - b.timestamp);
 
   dispatch(fetchSongCommentsSuccess(id, comments));
-};
-
-const fetchSong = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi(id);
-  const { userId } = json;
-
-  // const { entities, result } = normalize(json, songSchema);
-  // dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));
-  // dispatch(fetchSongComments(id));
   // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', userId)));
 };
 
