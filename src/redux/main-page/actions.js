@@ -30,12 +30,42 @@ export function getInfoForPersonalPage(email, then) {
   }).then(then)
 }
 
+export function deletePlaylist(playlistName, memEmail) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT deletePlaylist('${playlistName}','${memEmail}')`
+    }
+  }).then(then)
+}
+
 export function getInfoForPlaylistPage(name, email, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,
     data: {
       query: `SELECT getInfoForPlaylistPage('${name}','${email}')`
+    }
+  }).then(then)
+}
+
+export function addSongToPlaylist(songId, playlistName, memEmail) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT addSongToPlaylist('${songId}','${playlistName}','${memEmail}')`
+    }
+  }).then(then)
+}
+
+export function deleteSongFromPlaylist(songId, playlistName, memEmail) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT deleteSongFromPlaylist('${songId}','${playlistName}','${memEmail}')`
     }
   }).then(then)
 }
@@ -66,6 +96,16 @@ export function ratingBH(email, idBaiHat, soSao, then) {
     url: `${backendInfo.url}/query-db`,
     data: {
       query: `SELECT rateBaiHat('${email}','${idBaiHat}','${soSao}')`
+    }
+  }).then(then)
+}
+
+export function getInfoForArtistPage(artistId) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getInfoForArtistPage('${artistId}')`
     }
   }).then(then)
 }
