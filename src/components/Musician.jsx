@@ -114,7 +114,7 @@ class Musician extends Component {
                 playingSongId={playingSongId}
                 playlist={playlist}
                 playSong={playSong}
-                songs={songs}
+                songs={musician.artistAlbums}
                 toggleLike={toggleLike}
               />
             </div>

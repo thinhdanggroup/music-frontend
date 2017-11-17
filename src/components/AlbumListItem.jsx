@@ -36,7 +36,7 @@ const AlbumListItem = ({
   toggleLike,
 }) => {
   const { isPlaying } = player;
-  const { artworkUrl, commentCount, ratingCount, id, playbackCount, title, user } = song;
+  const { artworkUrl, id, title, releaseDate } = song;
   // const { avatarUrl, username } = user;
 
   return (
@@ -67,6 +67,9 @@ const AlbumListItem = ({
           {title}
         </Link>
         <div className="song-list__item__meta">
+          <div style={{ fontSize: 9 }}>
+            {`Release Date: ${releaseDate}`}
+          </div>
           {/* <div className="song-list__item__user">
             <div
               className="song-list__item__user__avatar"
@@ -81,17 +84,6 @@ const AlbumListItem = ({
               {username}
             </Link>
           </div> */}
-          <Stats
-            className="song-list__item__stats"
-            commentCount={commentCount}
-            ratingCount={ratingCount}
-            id={id}
-            isAuthenticated={isAuthenticated}
-            liked={liked}
-            login={login}
-            playbackCount={playbackCount}
-            toggleLike={toggleLike}
-          />
         </div>
       </div>
       <Waveform

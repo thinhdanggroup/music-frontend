@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SongListItem from '../components/SongListItem';
+import AlbumListItem from '../components/AlbumListItem';
 
 const defaultProps = {
   className: '',
@@ -43,7 +43,7 @@ const AlbumList = ({
     <div className={`song-list ${className}`}>
       {songs.map((song, i) => (song.id !== id
         ? (
-          <SongListItem
+          <AlbumListItem
             index={i + offsetIndex}
             isActive={playingSongId === song.id}
             isAuthenticated={isAuthenticated}
