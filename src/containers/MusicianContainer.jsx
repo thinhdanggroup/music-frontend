@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import User from '../components/Musician';
+import Musician from '../components/Musician';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
@@ -8,7 +8,7 @@ import fetchUserIfNeeded from '../actions/UserActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser } from '../selectors/UserSelectors';
 
-const UserContainer = props => <User {...props} />;
+const UserContainer = props => <Musician {...props} />;
 
 const mapStateToProps = (state) => {
   const { player } = state;

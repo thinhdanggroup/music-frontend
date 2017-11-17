@@ -35,7 +35,7 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-class User extends Component {
+class Musician extends Component {
   componentWillMount() {
     const { fetchUserIfNeeded, id, playlist, shouldFetchUser } = this.props;
     fetchUserIfNeeded(shouldFetchUser, id, playlist);
@@ -111,7 +111,7 @@ class User extends Component {
   }
 }
 
-User.defaultProps = defaultProps;
-User.propTypes = propTypes;
+Musician.defaultProps = defaultProps;
+Musician.propTypes = propTypes;
 
-export default stickyOnScroll(User, 50);
+export default stickyOnScroll(Musician, 50);

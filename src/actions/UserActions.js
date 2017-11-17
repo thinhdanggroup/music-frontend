@@ -4,23 +4,23 @@ import * as types from '../constants/ActionTypes';
 import { userSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
-const fetchUserFollowingsSuccess = entities => ({
-  type: types.FETCH_USER_FOLLOWINGS_SUCCESS,
-  entities,
-});
+// const fetchUserFollowingsSuccess = entities => ({
+//   type: types.FETCH_USER_FOLLOWINGS_SUCCESS,
+//   entities,
+// });
 
-const fetchUserFollowings = id => async (dispatch) => {
-  const { json } = await callApi();
-  const { collection } = json;
-  const { entities, result } = normalize(collection, [userSchema]);
+// const fetchUserFollowings = id => async (dispatch) => {
+//   const { json } = await callApi();
+//   const { collection } = json;
+//   const { entities, result } = normalize(collection, [userSchema]);
 
-  dispatch(fetchUserFollowingsSuccess({
-    users: {
-      ...entities.users,
-      [id]: { followings: result },
-    },
-  }));
-};
+//   dispatch(fetchUserFollowingsSuccess({
+//     users: {
+//       ...entities.users,
+//       [id]: { followings: result },
+//     },
+//   }));
+// };
 
 const fetchUserProfilesSuccess = (id, profiles) => ({
   type: types.FETCH_USER_PROFILES_SUCCESS,
@@ -42,12 +42,12 @@ const fetchUserSuccess = entities => ({
 });
 
 const fetchUser = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi();
+  const { json } = await callApi(`SELECT getInfoForArtistPage(artistId := ${id})`);
   const { entities } = normalize(json, userSchema);
   dispatch(fetchUserSuccess(entities));
 
   // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
-  dispatch(fetchUserFollowings(id));
+  // dispatch(fetchUserFollowings(id));
   dispatch(fetchUserProfiles(id));
 };
 
