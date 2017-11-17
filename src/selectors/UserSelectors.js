@@ -1,7 +1,7 @@
 import { denormalize } from 'normalizr';
 import { createSelector } from 'reselect';
 import { USER_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
-import { songSchema, userSchema } from '../constants/Schemas';
+import { songSchema, musicianSchema } from '../constants/Schemas';
 import { getEntities, getId, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
 
 export const getPlaylist = createSelector(
@@ -23,7 +23,7 @@ export const getUser = createSelector(
   getId,
   getEntities,
   (id, entities) => (id in entities.users
-    ? denormalize(id, userSchema, entities)
+    ? denormalize(id, musicianSchema, entities)
     : null
   ),
 );
@@ -32,7 +32,7 @@ export const getFollowings = createSelector(
   getUser,
   getEntities,
   (user, entities) => (user && user.followings
-    ? denormalize(user.followings, [userSchema], entities)
+    ? denormalize(user.followings, [musicianSchema], entities)
     : []
   ),
 );

@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 // import { fetchSongs } from '../actions/PlaylistActions';
 import * as types from '../constants/ActionTypes';
-import { userSchema } from '../constants/Schemas';
+// import { userSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
 // const fetchUserFollowingsSuccess = entities => ({
@@ -42,8 +42,13 @@ const fetchUserSuccess = entities => ({
 });
 
 const fetchUser = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi(`SELECT getInfoForArtistPage(artistId := ${id})`);
-  const { entities } = normalize(json, userSchema);
+  let { json } = await callApi(`SELECT getInfoForArtistPage(artistId := '${id}')`);
+  json = json.data.getinfoforartistpage
+  const entities = {
+    musicians: {
+      [id]: json
+    }
+  }
   dispatch(fetchUserSuccess(entities));
 
   // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));

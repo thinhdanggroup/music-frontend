@@ -1,11 +1,11 @@
 import { schema } from 'normalizr';
 
 const song = new schema.Entity('songs');
-const user = new schema.Entity('users');
+const musician = new schema.Entity('musicians');
 const playlist = new schema.Entity('playlists');
 
 song.define({
-  user,
+  musician,
 });
 
 playlist.define({
@@ -14,4 +14,4 @@ playlist.define({
 
 export const songSchema = song;
 export const playlistSchema = playlist;
-export const userSchema = user;
+export const musicianSchema = musician;
