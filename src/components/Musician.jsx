@@ -83,7 +83,7 @@ class Musician extends Component {
               toggleFollow={toggleFollow}
               musician={musician}
             />
-            {/* <SongList
+            <SongList
               className="user__song-list"
               isAuthenticated={isAuthenticated}
               likes={likes}
@@ -95,7 +95,7 @@ class Musician extends Component {
               playSong={playSong}
               songs={songs}
               toggleLike={toggleLike}
-            /> */}
+            />
           </div>
           {/* <div className="user__sidebar">
             <UserFollowings

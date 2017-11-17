@@ -1,5 +1,5 @@
 import { normalize } from 'normalizr';
-// import { fetchSongs } from '../actions/PlaylistActions';
+import { fetchSongs } from '../actions/PlaylistActions';
 import * as types from '../constants/ActionTypes';
 // import { userSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
@@ -50,7 +50,7 @@ const fetchMusician = (id, playlist) => async (dispatch) => {
     }
   }
   dispatch(fetchMusicianSuccess(entities));
-  // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
+  dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
   // dispatch(fetchUserFollowings(id));
   // dispatch(fetchUserProfiles(id));
 };
