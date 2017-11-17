@@ -109,3 +109,13 @@ export function getInfoForArtistPage(artistId, then) {
     }
   }).then(then)
 }
+
+export function getMembersEmail(then) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getMembersEmail()`
+    }
+  }).then(then)
+}
