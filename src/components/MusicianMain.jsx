@@ -29,13 +29,13 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
           <div className="user-main__username">
             {name}
           </div>
-          <div className="user-main__button">
-            {/* <UserFollowButton
+          {/* <div className="user-main__button">
+            <UserFollowButton
               id={user.id}
               isFollowing={isFollowing}
               toggleFollow={toggleFollow}
-            /> */}
-          </div>
+            />
+          </div> */}
         </div>
         {/* <div className="user-main__location">
           <i className="user-main__location__icon ion-location" />
@@ -63,7 +63,9 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
         </div> */}
         <div
           className="user-main__description"
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{
+            __html: `${birthdate ? `Birthdate ${birthdate}<br />` : ''}${description}`
+          }}
         />
       </div>
     </div>

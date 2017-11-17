@@ -90,8 +90,8 @@
 
 .user-main__description {
   margin-top: 10px;
-  max-height: 30px;
+  max-height: 80px;
   font-size: 11px;
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
 }
