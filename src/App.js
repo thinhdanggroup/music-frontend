@@ -33,6 +33,10 @@ export default class App extends Component {
               exact={true}
               path={routingPath.ALBUM}
               component={pages.Album} />
+            <Route
+              exact={true}
+              path={routingPath.ARTIST}
+              component={pages.Artist} />
           </Switch>
         </BrowserRouter>
       </Provider>
