@@ -7,6 +7,7 @@ import Waveform from '../components/Waveform';
 import { MUSICIAN_PATH, ALBUM_PATH } from '../constants/RouterConstants';
 import IMAGE_SIZES from '../constants/ImageConstants';
 import getImageUrl from '../utils/ImageUtils';
+import RelatedInfo from '../components/RelatedInfo'
 
 const propTypes = {
   isActive: PropTypes.bool.isRequired,
@@ -20,9 +21,6 @@ const propTypes = {
   song: PropTypes.shape({}).isRequired,
   toggleLike: PropTypes.func.isRequired,
 };
-const relatedInfoStyle = {
-  fontSize: 11
-}
 
 const SongMain = ({
   isActive,
@@ -73,57 +71,24 @@ const SongMain = ({
         <div className="song-main__title">
           {title}
         </div>
-        <div className="song-main__user">
-          <div style={relatedInfoStyle}>
-            {'Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
-          </div>
-          {albums.map((album, i) => (
-            <Link
-              className="song-main__user__username"
-              navigateTo={navigateTo}
-              keys={{ id: album.id }}
-              path={ALBUM_PATH}
-            >
-              <div style={relatedInfoStyle}>
-                {album.name}
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="song-main__user">
-          <div style={relatedInfoStyle}>
-            {'Composer\xa0\xa0\xa0\xa0'}
-          </div>
-          {ngheSiSTs.map((composer, i) => (
-            <Link
-              className="song-main__user__username"
-              navigateTo={navigateTo}
-              keys={{ id: composer.id }}
-              path={MUSICIAN_PATH}
-            >
-              <div style={relatedInfoStyle}>
-                {composer.name}
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="song-main__user">
-          <div style={relatedInfoStyle}>
-            {'Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
-          </div>
-          {ngheSiSTs.map((composer, i) => (
-            <Link
-              className="song-main__user__username"
-              navigateTo={navigateTo}
-              keys={{ id: composer.id }}
-              path={MUSICIAN_PATH}
-            >
-              <div style={relatedInfoStyle}>
-                {composer.name}
-              </div>
-            </Link>
-          ))}
-        </div>
+        <RelatedInfo
+          title='Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+          navigateTo={navigateTo}
+          content={album}
+          path={ALBUM_PATH}
+        />
+        <RelatedInfo
+          title='Composer\xa0\xa0\xa0\xa0'
+          navigateTo={navigateTo}
+          content={ngheSiSTs}
+          path={MUSICIAN_PATH}
+        />
+        <RelatedInfo
+          title='Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+          navigateTo={navigateTo}
+          content={ngheSiTDs}
+          path={MUSICIAN_PATH}
+        />
         <Stats
           className="song-main__stats"
           commentCount={commentCount}
