@@ -119,3 +119,13 @@ export function getMembersEmail(then) {
     }
   }).then(then)
 }
+
+export function getPlaylistsNameOfAMember(memEmail, then) {
+  axios({
+    method: 'post',
+    url: `${backendInfo.url}/query-db`,
+    data: {
+      query: `SELECT getPlaylistsNameOfAMember('${memEmail}')`
+    }
+  }).then(then)
+}
