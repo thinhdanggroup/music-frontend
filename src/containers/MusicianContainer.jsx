@@ -4,9 +4,9 @@ import Musician from '../components/Musician';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
-import fetchMusicianIfNeeded from '../actions/UserActions';
+import fetchMusicianIfNeeded from '../actions/MusicianActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser } from '../selectors/UserSelectors';
+import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser, getMusician } from '../selectors/MusicianSelectors';
 
 const MusicianContainer = props => <Musician {...props} />;
 
@@ -27,6 +27,7 @@ const mapStateToProps = (state) => {
     shouldFetchUser: getShouldFetchUser(state),
     songs: getSongs(state),
     user: getUser(state),
+    musician: getMusician(state)
   };
 };
 
@@ -36,7 +37,7 @@ const toggleFollow = () => { }
 const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
-  fetchUserIfNeeded,
+  fetchMusicianIfNeeded,
   login,
   toggleFollow,
   toggleLike,

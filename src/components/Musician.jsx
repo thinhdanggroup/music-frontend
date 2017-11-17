@@ -15,7 +15,7 @@ const defaultProps = {
 const propTypes = {
   fetchMusicianIfNeeded: PropTypes.func.isRequired,
   followings: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   isFollowing: PropTypes.bool.isRequired,
   likes: PropTypes.shape({}).isRequired,
@@ -68,6 +68,7 @@ class Musician extends Component {
       toggleFollow,
       toggleLike,
       user,
+      musician,
     } = this.props;
     if (shouldFetchUser) {
       return <Loader className="loader--full" isLoading />;

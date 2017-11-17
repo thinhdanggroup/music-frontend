@@ -10,11 +10,11 @@ const propTypes = {
   isFollowing: PropTypes.bool.isRequired,
   profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   toggleFollow: PropTypes.func.isRequired,
-  user: PropTypes.shape({}).isRequired,
+  musician: PropTypes.shape({}).isRequired,
 };
 
-const MusicianMain = ({ isFollowing, profiles, toggleFollow, user }) => {
-  const { avatarUrl, description, followersCount, username } = user;
+const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
+  const { avatarUrl, description, followersCount, name } = musician;
 
   return (
     <div className="user-main">
@@ -27,7 +27,7 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, user }) => {
       <div className="user-main__main">
         <div className="user-main__title">
           <div className="user-main__username">
-            {username}
+            {name}
           </div>
           <div className="user-main__button">
             {/* <UserFollowButton

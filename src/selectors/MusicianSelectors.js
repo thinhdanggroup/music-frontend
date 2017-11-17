@@ -28,6 +28,18 @@ export const getUser = createSelector(
   ),
 );
 
+export const getMusician = createSelector(
+  getId,
+  getEntities,
+  (id, entities) => {
+    console.log(entities)
+    return (id in entities.musicians
+      ? denormalize(id, musicianSchema, entities)
+      : null
+    )
+  },
+);
+
 export const getFollowings = createSelector(
   getUser,
   getEntities,

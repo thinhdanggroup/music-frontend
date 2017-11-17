@@ -5,6 +5,7 @@ const initialState = {
   playlists: {},
   songs: {},
   users: {},
+  musicians: {},
 };
 
 export default function entities(state = initialState, action) {

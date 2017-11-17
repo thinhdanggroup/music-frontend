@@ -25,7 +25,7 @@ import { callApi } from '../utils/ApiUtils';
 const fetchUserProfilesSuccess = (id, profiles) => ({
   type: types.FETCH_USER_PROFILES_SUCCESS,
   entities: {
-    users: {
+    musicians: {
       [id]: { profiles },
     },
   },
@@ -61,4 +61,4 @@ const fetchMusicianIfNeeded = (shouldFetchUser, id, playlist) => (dispatch) => {
   }
 };
 
-export default fetchUserIfNeeded;
+export default fetchMusicianIfNeeded;
