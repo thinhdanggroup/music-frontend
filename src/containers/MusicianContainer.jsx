@@ -8,7 +8,7 @@ import fetchUserIfNeeded from '../actions/UserActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser } from '../selectors/UserSelectors';
 
-const UserContainer = props => <Musician {...props} />;
+const MusicianContainer = props => <Musician {...props} />;
 
 const mapStateToProps = (state) => {
   const { player } = state;
@@ -42,4 +42,4 @@ export default connect(mapStateToProps, {
   toggleLike,
   navigateTo,
   playSong,
-})(UserContainer);
+})(MusicianContainer);

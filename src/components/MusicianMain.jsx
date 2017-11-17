@@ -13,7 +13,7 @@ const propTypes = {
   user: PropTypes.shape({}).isRequired,
 };
 
-const UserMain = ({ isFollowing, profiles, toggleFollow, user }) => {
+const MusicianMain = ({ isFollowing, profiles, toggleFollow, user }) => {
   const { avatarUrl, description, followersCount, username } = user;
 
   return (
@@ -70,6 +70,6 @@ const UserMain = ({ isFollowing, profiles, toggleFollow, user }) => {
   );
 };
 
-UserMain.propTypes = propTypes;
+MusicianMain.propTypes = propTypes;
 
-export default UserMain;
+export default MusicianMain;

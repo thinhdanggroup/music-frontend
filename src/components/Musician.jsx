@@ -5,7 +5,7 @@ import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
 // import UserFollowings from '../components/UserFollowings';
-import UserMain from '../components/UserMain';
+import MusicianMain from '../components/UserMain';
 
 const defaultProps = {
   playingSongId: null,
@@ -77,7 +77,7 @@ class Musician extends Component {
       <div className="container">
         <div className="user content">
           <div className="user__main">
-            <UserMain
+            <MusicianMain
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
