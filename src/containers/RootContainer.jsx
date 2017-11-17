@@ -8,6 +8,7 @@ import Root from '../components/Root';
 import SongContainer from '../containers/SongContainer';
 // import SongsContainer from '../containers/SongsContainer';
 import MusicianContainer from '../containers/MusicianContainer';
+import AlbumContainer from '../containers/AlbumContainer';
 
 import {
   INDEX_PATH,
@@ -34,7 +35,7 @@ const mapStateToProps = (state) => {
       // [SONGS_PATH]: SongsContainer,
       // [USER_PATH]: UserContainer,
       [MUSICIAN_PATH]: MusicianContainer,
-      [ALBUM_PATH]: SongContainer,
+      [ALBUM_PATH]: AlbumContainer,
     },
   };
 };
