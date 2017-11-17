@@ -67,7 +67,6 @@ class Musician extends Component {
       songs,
       toggleFollow,
       toggleLike,
-      user,
       musician,
     } = this.props;
     if (shouldFetchUser) {
@@ -82,9 +81,9 @@ class Musician extends Component {
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
-              user={user}
+              musician={musician}
             />
-            <SongList
+            {/* <SongList
               className="user__song-list"
               isAuthenticated={isAuthenticated}
               likes={likes}
@@ -96,16 +95,16 @@ class Musician extends Component {
               playSong={playSong}
               songs={songs}
               toggleLike={toggleLike}
-            />
+            /> */}
           </div>
-          <div className="user__sidebar">
-            {/* <UserFollowings
+          {/* <div className="user__sidebar">
+            <UserFollowings
               followings={followings}
               navigateTo={navigateTo}
               sidebarHeight={sidebarHeight}
               sticky={sticky}
-            /> */}
-          </div>
+            />
+          </div> */}
         </div>
       </div>
     );

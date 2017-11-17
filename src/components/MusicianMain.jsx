@@ -14,7 +14,7 @@ const propTypes = {
 };
 
 const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
-  const { avatarUrl, description, followersCount, name } = musician;
+  const { avatarUrl, description, followersCount, name, birthdate } = musician;
 
   return (
     <div className="user-main">
@@ -40,7 +40,7 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
         <div className="user-main__location">
           <i className="user-main__location__icon ion-location" />
           <div className="user-main__location__text">
-            {/* {getLocation(user)} */}
+            {musician.birthday}
           </div>
         </div>
         <div className="user-main__meta">

@@ -31,13 +31,10 @@ export const getUser = createSelector(
 export const getMusician = createSelector(
   getId,
   getEntities,
-  (id, entities) => {
-    console.log(entities)
-    return (id in entities.musicians
-      ? denormalize(id, musicianSchema, entities)
-      : null
-    )
-  },
+  (id, entities) => (id in entities.musicians
+    ? denormalize(id, musicianSchema, entities)
+    : null
+  ),
 );
 
 export const getFollowings = createSelector(
@@ -60,11 +57,11 @@ export const getShouldFetchUser = createSelector(
   getEntities,
   (id, entities) => {
     const { musicians } = entities;
-    const musician = id in musicians;
-    const musicianHasProfiles = userExists ? 'profiles' in users[id] : false;
+    const musicianExist = id in musicians;
+    const musicianHasProfiles = musicianExist ? 'profiles' in musicians[id] : false;
 
     // return !userExists || !userHasProfiles;
-    return !userExists;
+    return !musicianExist;
   },
 );
 
