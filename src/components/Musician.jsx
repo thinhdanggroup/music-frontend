@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import AlbumList from '../components/AlbumList';
 import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
@@ -85,7 +86,7 @@ class Musician extends Component {
             />
             <div className="user-main__username">
               <br />
-              Song
+              {'\xa0\xa0Song'}
             </div>
             <SongList
               className="user__song-list"
@@ -102,7 +103,20 @@ class Musician extends Component {
             />
             <div className="user-main__username">
               <br />
-              Album
+              {'\xa0\xa0Album'}
+              <AlbumList
+                className="user__song-list"
+                isAuthenticated={isAuthenticated}
+                likes={likes}
+                login={login}
+                navigateTo={navigateTo}
+                player={player}
+                playingSongId={playingSongId}
+                playlist={playlist}
+                playSong={playSong}
+                songs={songs}
+                toggleLike={toggleLike}
+              />
             </div>
           </div>
           {/* <div className="user__sidebar">
