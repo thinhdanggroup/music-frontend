@@ -13,7 +13,7 @@ const defaultProps = {
 };
 
 const propTypes = {
-  fetchUserIfNeeded: PropTypes.func.isRequired,
+  fetchMusicianIfNeeded: PropTypes.func.isRequired,
   followings: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
@@ -37,14 +37,14 @@ const propTypes = {
 
 class Musician extends Component {
   componentWillMount() {
-    const { fetchUserIfNeeded, id, playlist, shouldFetchUser } = this.props;
-    fetchUserIfNeeded(shouldFetchUser, id, playlist);
+    const { fetchMusicianIfNeeded, id, playlist, shouldFetchUser } = this.props;
+    fetchMusicianIfNeeded(shouldFetchUser, id, playlist);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchUserIfNeeded, id } = this.props;
+    const { fetchMusicianIfNeeded, id } = this.props;
     if (nextProps.id !== id) {
-      fetchUserIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
+      fetchMusicianIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
     }
   }
 

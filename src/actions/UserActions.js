@@ -36,12 +36,12 @@ const fetchUserProfiles = id => async (dispatch) => {
   dispatch(fetchUserProfilesSuccess(id, json.slice(0, 6)));
 };
 
-const fetchUserSuccess = entities => ({
+const fetchMusicianSuccess = entities => ({
   type: types.FETCH_USER_SUCCESS,
   entities,
 });
 
-const fetchUser = (id, playlist) => async (dispatch) => {
+const fetchMusician = (id, playlist) => async (dispatch) => {
   let { json } = await callApi(`SELECT getInfoForArtistPage(artistId := '${id}')`);
   json = json.data.getinfoforartistpage
   const entities = {
@@ -49,16 +49,15 @@ const fetchUser = (id, playlist) => async (dispatch) => {
       [id]: json
     }
   }
-  dispatch(fetchUserSuccess(entities));
-
+  dispatch(fetchMusicianSuccess(entities));
   // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
   // dispatch(fetchUserFollowings(id));
-  dispatch(fetchUserProfiles(id));
+  // dispatch(fetchUserProfiles(id));
 };
 
-const fetchUserIfNeeded = (shouldFetchUser, id, playlist) => (dispatch) => {
+const fetchMusicianIfNeeded = (shouldFetchUser, id, playlist) => (dispatch) => {
   if (shouldFetchUser) {
-    dispatch(fetchUser(id, playlist));
+    dispatch(fetchMusician(id, playlist));
   }
 };
 
