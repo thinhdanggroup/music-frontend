@@ -82,7 +82,7 @@ const SongMain = ({
               className="song-main__user__username"
               navigateTo={navigateTo}
               keys={{ id: album.id }}
-              path={MUSICIAN_PATH}
+              path={ALBUM_PATH}
             >
               <div style={relatedInfoStyle}>
                 {album.name}
