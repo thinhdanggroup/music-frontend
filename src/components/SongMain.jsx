@@ -20,6 +20,9 @@ const propTypes = {
   song: PropTypes.shape({}).isRequired,
   toggleLike: PropTypes.func.isRequired,
 };
+const relatedInfoStyle = {
+  fontSize: 11
+}
 
 const SongMain = ({
   isActive,
@@ -71,7 +74,9 @@ const SongMain = ({
           {title}
         </div>
         <div className="song-main__user">
-          {'Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
+          <div style={relatedInfoStyle}>
+            {'Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
+          </div>
           {albums.map((album, i) => (
             <Link
               className="song-main__user__username"
@@ -79,12 +84,16 @@ const SongMain = ({
               keys={{ id: album.id }}
               path={MUSICIAN_PATH}
             >
-              {album.name}
+              <div style={relatedInfoStyle}>
+                {album.name}
+              </div>
             </Link>
           ))}
         </div>
         <div className="song-main__user">
-          {'Composer\xa0\xa0\xa0\xa0'}
+          <div style={relatedInfoStyle}>
+            {'Composer\xa0\xa0\xa0\xa0'}
+          </div>
           {ngheSiSTs.map((composer, i) => (
             <Link
               className="song-main__user__username"
@@ -92,12 +101,16 @@ const SongMain = ({
               keys={{ id: composer.id }}
               path={MUSICIAN_PATH}
             >
-              {composer.name}
+              <div style={relatedInfoStyle}>
+                {composer.name}
+              </div>
             </Link>
           ))}
         </div>
         <div className="song-main__user">
-          {'Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
+          <div style={relatedInfoStyle}>
+            {'Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
+          </div>
           {ngheSiSTs.map((composer, i) => (
             <Link
               className="song-main__user__username"
@@ -105,7 +118,9 @@ const SongMain = ({
               keys={{ id: composer.id }}
               path={MUSICIAN_PATH}
             >
-              {composer.name}
+              <div style={relatedInfoStyle}>
+                {composer.name}
+              </div>
             </Link>
           ))}
         </div>
