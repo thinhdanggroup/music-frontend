@@ -19,15 +19,6 @@ export const getSongs = createSelector(
   ),
 );
 
-export const getPlaylistList = createSelector(
-  getPlaylist,
-  getPlaylists,
-  getEntities,
-  (playlist, playlists, entities) => (playlist in playlists
-    ? denormalize(playlists[playlist].items, [songSchema], entities)
-    : []
-  ),
-);
 export const getUser = createSelector(
   getId,
   getEntities,
