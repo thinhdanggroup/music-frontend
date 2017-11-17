@@ -19,7 +19,7 @@ export const getSongs = createSelector(
   ),
 );
 
-export const getAlbums = createSelector(
+export const getPlaylistList = createSelector(
   getPlaylist,
   getPlaylists,
   getEntities,
