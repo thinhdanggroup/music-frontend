@@ -1,7 +1,6 @@
 import { normalize } from 'normalizr';
-import { fetchSongs } from '../actions/PlaylistActions';
+// import { fetchSongs } from '../actions/PlaylistActions';
 import * as types from '../constants/ActionTypes';
-import { USER_FOLLOWINGS_URL, USER_PROFILES_URL, USER_SONGS_URL, USER_URL } from '../constants/ApiConstants';
 import { userSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
@@ -11,7 +10,7 @@ const fetchUserFollowingsSuccess = entities => ({
 });
 
 const fetchUserFollowings = id => async (dispatch) => {
-  const { json } = await callApi(USER_FOLLOWINGS_URL.replace(':id', id));
+  const { json } = await callApi();
   const { collection } = json;
   const { entities, result } = normalize(collection, [userSchema]);
 
@@ -33,7 +32,7 @@ const fetchUserProfilesSuccess = (id, profiles) => ({
 });
 
 const fetchUserProfiles = id => async (dispatch) => {
-  const { json } = await callApi(USER_PROFILES_URL.replace(':id', id));
+  const { json } = await callApi();
   dispatch(fetchUserProfilesSuccess(id, json.slice(0, 6)));
 };
 
@@ -43,11 +42,11 @@ const fetchUserSuccess = entities => ({
 });
 
 const fetchUser = (id, playlist) => async (dispatch) => {
-  const { json } = await callApi(USER_URL.replace(':id', id));
+  const { json } = await callApi();
   const { entities } = normalize(json, userSchema);
   dispatch(fetchUserSuccess(entities));
 
-  dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
+  // dispatch(fetchSongs(playlist, USER_SONGS_URL.replace(':id', id)));
   dispatch(fetchUserFollowings(id));
   dispatch(fetchUserProfiles(id));
 };
