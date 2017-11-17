@@ -5,7 +5,7 @@ import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
 // import UserFollowings from '../components/UserFollowings';
-import MusicianMain from '../components/UserMain';
+import MusicianMain from '../components/MusicianMain';
 
 const defaultProps = {
   playingSongId: null,
