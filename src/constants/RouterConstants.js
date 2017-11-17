@@ -4,7 +4,9 @@ export const PLAYLIST_PATH = 'playlists/:id';
 export const SONG_PATH = 'songs/:id';
 export const SONGS_PATH = 'songs';
 export const STREAM_PATH = 'me/stream';
-export const USER_PATH = 'users/:id';
+export const USER_PATH = 'user/:id';
+export const MUSICIAN_PATH = 'musician/:id';
+export const ALBUM_PATH = 'album/:id';
 
 export const INITIAL_ROUTE = {
   keys: {},
