@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import Link from '../components/Link';
 
 const defaultProps = {
-  style = {
-    fontSize: 11
+  style: {
+    fontSize: 9
   }
 };
 
@@ -15,7 +16,7 @@ const propTypes = {
   navigateTo: PropTypes.func.isRequired,
 };
 
-class Heart extends Component {
+class RelatedInfo extends Component {
   constructor(props) {
     super(props)
   }
@@ -29,13 +30,13 @@ class Heart extends Component {
         </div>
         {content.map((element, i) => (
           <Link
-            className="song-main__user__username"
+            // className="song-main__user__username"
             navigateTo={navigateTo}
             keys={{ id: element.id }}
             path={path}
           >
             <div style={style}>
-              {element.name}
+              {element.name + (i + 1 != content.length ? ',\xa0' : '')}
             </div>
           </Link>
         ))}

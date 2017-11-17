@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ArtworkPlay from '../components/ArtworkPlay';
-import Link from '../components/Link';
 import Stats from '../components/Stats';
 import Waveform from '../components/Waveform';
 import { MUSICIAN_PATH, ALBUM_PATH } from '../constants/RouterConstants';
@@ -45,9 +44,14 @@ const SongMain = ({
     ngheSiSTs,
     ngheSiTDs,
     albums,
+    genres,
     title,
   } = song;
   // const { avatarUrl, username } = user;
+
+  genres.map((genre, i) => {
+    genres[i].id = genre.name
+  })
 
   return (
     <div className={`song-main ${isActive ? 'song-main--active' : ''}`}>
@@ -72,21 +76,27 @@ const SongMain = ({
           {title}
         </div>
         <RelatedInfo
-          title='Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+          title={'Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
           navigateTo={navigateTo}
-          content={album}
+          content={albums}
           path={ALBUM_PATH}
         />
         <RelatedInfo
-          title='Composer\xa0\xa0\xa0\xa0'
+          title={'Composer\xa0\xa0\xa0\xa0'}
           navigateTo={navigateTo}
           content={ngheSiSTs}
           path={MUSICIAN_PATH}
         />
         <RelatedInfo
-          title='Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'
+          title={'Singer\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
           navigateTo={navigateTo}
           content={ngheSiTDs}
+          path={MUSICIAN_PATH}
+        />
+        <RelatedInfo
+          title={'Genre\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
+          navigateTo={navigateTo}
+          content={genres}
           path={MUSICIAN_PATH}
         />
         <Stats
