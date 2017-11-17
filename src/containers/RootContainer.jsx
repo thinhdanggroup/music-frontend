@@ -25,16 +25,16 @@ const mapStateToProps = (state) => {
   const { router } = state;
 
   return {
-    paths: [INDEX_PATH, PLAYLIST_PATH, SONG_PATH, SONGS_PATH, USER_PATH],
+    paths: [INDEX_PATH, PLAYLIST_PATH, SONG_PATH, SONGS_PATH, USER_PATH, MUSICIAN_PATH, ALBUM_PATH],
     router,
     routes: {
       // [INDEX_PATH]: SongsContainer,
       // [PLAYLIST_PATH]: SongsContainer,
       [SONG_PATH]: SongContainer,
-      [MUSICIAN_PATH]: MusicianContainer,
-      [ALBUM_PATH]: SongContainer,
       // [SONGS_PATH]: SongsContainer,
       // [USER_PATH]: UserContainer,
+      [MUSICIAN_PATH]: MusicianContainer,
+      [ALBUM_PATH]: SongContainer,
     },
   };
 };
