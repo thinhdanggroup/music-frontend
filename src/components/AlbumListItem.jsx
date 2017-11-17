@@ -4,7 +4,7 @@ import ArtworkPlay from '../components/ArtworkPlay';
 import Link from '../components/Link';
 import Stats from '../components/Stats';
 import Waveform from '../components/Waveform';
-import { SONG_PATH, USER_PATH } from '../constants/RouterConstants';
+import { ALBUM_PATH } from '../constants/RouterConstants';
 import IMAGE_SIZES from '../constants/ImageConstants';
 import getImageUrl from '../utils/ImageUtils';
 
@@ -62,7 +62,7 @@ const AlbumListItem = ({
           className="song-list__item__title"
           navigateTo={navigateTo}
           keys={{ id }}
-          path={SONG_PATH}
+          path={ALBUM_PATH}
         >
           {title}
         </Link>
@@ -70,20 +70,6 @@ const AlbumListItem = ({
           <div style={{ fontSize: 9 }}>
             {`Release Date: ${releaseDate}`}
           </div>
-          {/* <div className="song-list__item__user">
-            <div
-              className="song-list__item__user__avatar"
-              style={{ backgroundImage: `url(${getImageUrl(avatarUrl)})` }}
-            />
-            <Link
-              className="song-list__item__user__username"
-              navigateTo={navigateTo}
-              keys={{ id: user.id }}
-              path={USER_PATH}
-            >
-              {username}
-            </Link>
-          </div> */}
         </div>
       </div>
       <Waveform
