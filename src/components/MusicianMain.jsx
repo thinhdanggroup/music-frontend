@@ -37,13 +37,13 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
             /> */}
           </div>
         </div>
-        <div className="user-main__location">
+        {/* <div className="user-main__location">
           <i className="user-main__location__icon ion-location" />
           <div className="user-main__location__text">
             {musician.birthday}
           </div>
-        </div>
-        <div className="user-main__meta">
+        </div> */}
+        {/* <div className="user-main__meta">
           <div className="user-main__followings">
             <div className="user-main__followings__count">
               {addCommas(followersCount)}
@@ -54,13 +54,13 @@ const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
           </div>
           {profiles.map(({ id, service, title, url }) => (
             <div className="user-main__profile" key={id}>
-              {/* <i className={`user-main__profile__icon ${getSocialIcon(service)}`} /> */}
+              <i className={`user-main__profile__icon ${getSocialIcon(service)}`} />
               <a className="user-main__profile__text" href={url} target="_blank">
                 {title || service}
               </a>
             </div>
           ))}
-        </div>
+        </div> */}
         <div
           className="user-main__description"
           dangerouslySetInnerHTML={{ __html: description }}
