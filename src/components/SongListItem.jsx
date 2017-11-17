@@ -37,7 +37,7 @@ const SongListItem = ({
 }) => {
   const { isPlaying } = player;
   const { artworkUrl, commentCount, ratingCount, id, playbackCount, title, user } = song;
-  const { avatarUrl, username } = user;
+  // const { avatarUrl, username } = user;
 
   return (
     <div className={`song-list__item ${isActive ? 'song-list__item--active' : ''}`}>
@@ -67,7 +67,7 @@ const SongListItem = ({
           {title}
         </Link>
         <div className="song-list__item__meta">
-          <div className="song-list__item__user">
+          {/* <div className="song-list__item__user">
             <div
               className="song-list__item__user__avatar"
               style={{ backgroundImage: `url(${getImageUrl(avatarUrl)})` }}
@@ -80,7 +80,7 @@ const SongListItem = ({
             >
               {username}
             </Link>
-          </div>
+          </div> */}
           <Stats
             className="song-list__item__stats"
             commentCount={commentCount}

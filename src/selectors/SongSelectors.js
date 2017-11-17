@@ -20,7 +20,7 @@ export const getSongComments = createSelector(
   getSong,
   song => (song && song.comments
     ? song.comments
-    : []
+    : null
   ),
 );
 

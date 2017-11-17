@@ -65,7 +65,7 @@ class Song extends Component {
       timed,
       toggleLike,
     } = this.props;
-    if (!song) {
+    if (!song || !comments) {
       return <Loader className="loader--full" isLoading />;
     }
 
