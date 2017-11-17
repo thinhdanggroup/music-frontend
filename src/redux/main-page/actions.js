@@ -30,7 +30,7 @@ export function getInfoForPersonalPage(email, then) {
   }).then(then)
 }
 
-export function deletePlaylist(playlistName, memEmail) {
+export function deletePlaylist(playlistName, memEmail, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,
@@ -50,7 +50,7 @@ export function getInfoForPlaylistPage(name, email, then) {
   }).then(then)
 }
 
-export function addSongToPlaylist(songId, playlistName, memEmail) {
+export function addSongToPlaylist(songId, playlistName, memEmail, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,
@@ -60,7 +60,7 @@ export function addSongToPlaylist(songId, playlistName, memEmail) {
   }).then(then)
 }
 
-export function deleteSongFromPlaylist(songId, playlistName, memEmail) {
+export function deleteSongFromPlaylist(songId, playlistName, memEmail, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,
@@ -100,7 +100,7 @@ export function ratingBH(email, idBaiHat, soSao, then) {
   }).then(then)
 }
 
-export function getInfoForArtistPage(artistId) {
+export function getInfoForArtistPage(artistId, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,
