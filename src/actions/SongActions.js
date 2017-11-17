@@ -6,7 +6,7 @@ import { songSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
 const fetchSong = (id, playlist) => async (dispatch) => {
-  let { json } = await callApi(`SELECT getBaiHatById('${id}')`);
+  let { json } = await callApi(`SELECT getBaiHatById(idbaihat:='${id}')`);
   json = json.data.getbaihatbyid
 
   const result = id;
