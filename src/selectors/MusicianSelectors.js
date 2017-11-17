@@ -59,15 +59,17 @@ export const getShouldFetchUser = createSelector(
   getId,
   getEntities,
   (id, entities) => {
-    const { users } = entities;
-    const userExists = id in users;
-    const userHasProfiles = userExists ? 'profiles' in users[id] : false;
+    const { musicians } = entities;
+    const musician = id in musicians;
+    const musicianHasProfiles = userExists ? 'profiles' in users[id] : false;
 
-    return !userExists || !userHasProfiles;
+    // return !userExists || !userHasProfiles;
+    return !userExists;
   },
 );
 
 export const getProfiles = createSelector(
-  getUser,
+  // getUser,
+  getMusician,
   user => (user && user.profiles ? user.profiles : []),
 );
