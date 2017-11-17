@@ -74,6 +74,8 @@ class Musician extends Component {
       return <Loader className="loader--full" isLoading />;
     }
 
+    const albums = musician.artistAlbums
+
     return (
       <div className="container">
         <div className="user content">
@@ -84,40 +86,46 @@ class Musician extends Component {
               toggleFollow={toggleFollow}
               musician={musician}
             />
-            <div className="user-main__username">
-              <br />
-              {'\xa0\xa0Song'}
-            </div>
-            <SongList
-              className="user__song-list"
-              isAuthenticated={isAuthenticated}
-              likes={likes}
-              login={login}
-              navigateTo={navigateTo}
-              player={player}
-              playingSongId={playingSongId}
-              playlist={playlist}
-              playSong={playSong}
-              songs={songs}
-              toggleLike={toggleLike}
-            />
-            <div className="user-main__username">
-              <br />
-              {'\xa0\xa0Album'}
-              <AlbumList
-                className="user__song-list"
-                isAuthenticated={isAuthenticated}
-                likes={likes}
-                login={login}
-                navigateTo={navigateTo}
-                player={player}
-                playingSongId={playingSongId}
-                playlist={playlist}
-                playSong={playSong}
-                songs={musician.artistAlbums}
-                toggleLike={toggleLike}
-              />
-            </div>
+            {!songs.length || !songs ? null :
+              <div>
+                <div className="user-main__username">
+                  <br />
+                  {'\xa0\xa0Song'}
+                </div>
+                <SongList
+                  className="user__song-list"
+                  isAuthenticated={isAuthenticated}
+                  likes={likes}
+                  login={login}
+                  navigateTo={navigateTo}
+                  player={player}
+                  playingSongId={playingSongId}
+                  playlist={playlist}
+                  playSong={playSong}
+                  songs={songs}
+                  toggleLike={toggleLike}
+                />
+              </div>
+            }
+            {!albums.length || !albums ? null :
+              <div className="user-main__username">
+                <br />
+                {'\xa0\xa0Album'}
+                <AlbumList
+                  className="user__song-list"
+                  isAuthenticated={isAuthenticated}
+                  likes={likes}
+                  login={login}
+                  navigateTo={navigateTo}
+                  player={player}
+                  playingSongId={playingSongId}
+                  playlist={playlist}
+                  playSong={playSong}
+                  songs={albums}
+                  toggleLike={toggleLike}
+                />
+              </div>
+            }
           </div>
           {/* <div className="user__sidebar">
             <UserFollowings
