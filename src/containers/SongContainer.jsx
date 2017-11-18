@@ -10,6 +10,7 @@ import { navigateTo } from '../actions/RouterActions';
 
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getComments, getPlaylist, getSong, getSongs, getTimed } from '../selectors/SongSelectors';
+import { postComment } from '../actions/CommentActions'
 
 const SongContainer = props => <Song {...props} />;
 
@@ -42,4 +43,5 @@ export default connect(mapStateToProps, {
   navigateTo,
   playSong,
   toggleLike,
+  postComment
 })(SongContainer);

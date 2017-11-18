@@ -68,7 +68,6 @@ class Song extends Component {
     if (!song || !comments) {
       return <Loader className="loader--full" isLoading />;
     }
-
     return (
       <div className="container">
         <div className="song content">
@@ -109,6 +108,7 @@ class Song extends Component {
               sidebarHeight={sidebarHeight}
               sticky={sticky}
               timed={timed}
+              postComment = {this.props.postComment}
             />
           </div>
         </div>
