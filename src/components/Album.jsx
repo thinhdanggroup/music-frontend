@@ -81,6 +81,7 @@ class Album extends Component {
               profiles={profiles}
               toggleFollow={toggleFollow}
               album={album}
+              navigateTo={navigateTo}
             />
             {!songs.length || !songs ? null :
               <div>

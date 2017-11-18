@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// import UserFollowButton from '../components/UserFollowButton';
 import IMAGE_SIZES from '../constants/ImageConstants';
-import { addCommas } from '../utils/NumberUtils';
 import getImageUrl from '../utils/ImageUtils';
-// import { getSocialIcon, getLocation } from '../utils/UserUtils';
+import RelatedInfo from '../components/RelatedInfo'
+import { MUSICIAN_PATH } from '../constants/RouterConstants';
 
 const propTypes = {
-  isFollowing: PropTypes.bool.isRequired,
-  profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  toggleFollow: PropTypes.func.isRequired,
+  navigateTo: PropTypes.func.isRequired,
   album: PropTypes.shape({}).isRequired,
 };
 
-const AlbumMain = ({ isFollowing, profiles, toggleFollow, album }) => {
-  const { avatarUrl, description, followersCount, name, birthdate } = album;
+const AlbumMain = ({ navigateTo, album }) => {
+  const { avatarUrl, description, ngheSiPHs, name, releaseDate } = album;
 
   return (
     <div className="user-main">
@@ -30,10 +27,17 @@ const AlbumMain = ({ isFollowing, profiles, toggleFollow, album }) => {
             {name}
           </div>
         </div>
+        <RelatedInfo
+          title={'Musician\xa0\xa0\xa0\xa0'}
+          navigateTo={navigateTo}
+          content={ngheSiPHs}
+          path={MUSICIAN_PATH}
+        />
         <div
           className="user-main__description"
           dangerouslySetInnerHTML={{
-            __html: `${birthdate ? `Birthdate ${birthdate}<br />` : ''}${description}`
+            __html: `${releaseDate ? `Release date ${releaseDate}<br />` : ''}
+                     ${description ? `${description}` : ''}`
           }}
         />
       </div>
