@@ -1,7 +1,7 @@
 import { denormalize } from 'normalizr';
 import { createSelector } from 'reselect';
 import { ALBUM_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
-import { songSchema, musicianSchema } from '../constants/Schemas';
+import { songSchema, albumSchema } from '../constants/Schemas';
 import { getEntities, getId, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
 
 export const getPlaylist = createSelector(
@@ -19,37 +19,13 @@ export const getSongs = createSelector(
   ),
 );
 
-export const getUser = createSelector(
-  getId,
-  getEntities,
-  (id, entities) => (id in entities.users
-    ? denormalize(id, musicianSchema, entities)
-    : null
-  ),
-);
-
 export const getMusician = createSelector(
   getId,
   getEntities,
-  (id, entities) => (id in entities.musicians
-    ? denormalize(id, musicianSchema, entities)
+  (id, entities) => (id in entities.albums
+    ? denormalize(id, albumSchema, entities)
     : null
   ),
-);
-
-export const getFollowings = createSelector(
-  getUser,
-  getEntities,
-  (user, entities) => (user && user.followings
-    ? denormalize(user.followings, [musicianSchema], entities)
-    : []
-  ),
-);
-
-export const getIsFollowing = createSelector(
-  getId,
-  getSessionFollowings,
-  (id, followings) => Boolean(id in followings && followings[id]),
 );
 
 export const getShouldFetchUser = createSelector(
@@ -63,10 +39,4 @@ export const getShouldFetchUser = createSelector(
     // return !userExists || !userHasProfiles;
     return !musicianExist;
   },
-);
-
-export const getProfiles = createSelector(
-  // getUser,
-  getMusician,
-  user => (user && user.profiles ? user.profiles : []),
 );

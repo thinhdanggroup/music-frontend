@@ -26,7 +26,6 @@ const mapStateToProps = (state) => {
     sidebarHeight: getSidebarHeight(state),
     shouldFetchUser: getShouldFetchUser(state),
     songs: getSongs(state),
-    user: getUser(state),
     musician: getMusician(state)
   };
 };

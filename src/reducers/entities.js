@@ -6,6 +6,7 @@ const initialState = {
   songs: {},
   users: {},
   musicians: {},
+  albums: {},
 };
 
 export default function entities(state = initialState, action) {
