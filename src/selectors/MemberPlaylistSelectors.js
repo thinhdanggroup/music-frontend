@@ -1,7 +1,7 @@
 import { denormalize } from 'normalizr';
 import { createSelector } from 'reselect';
 import { ALBUM_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
-import { songSchema, albumSchema } from '../constants/Schemas';
+import { songSchema, memPlaylistSchema } from '../constants/Schemas';
 import { getEntities, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
 
 export const getId = state => [state.router.route.keys.email, state.router.route.keys.playlistName].join('|');
@@ -21,11 +21,11 @@ export const getSongs = createSelector(
   ),
 );
 
-export const getAlbum = createSelector(
+export const getMemberPlaylist = createSelector(
   getId,
   getEntities,
-  (id, entities) => (id in entities.albums
-    ? denormalize(id, albumSchema, entities)
+  (id, entities) => (id in entities.memPlaylists
+    ? denormalize(id, memPlaylistSchema, entities)
     : null
   ),
 );
@@ -34,9 +34,9 @@ export const getShouldFetchUser = createSelector(
   getId,
   getEntities,
   (id, entities) => {
-    const { albums } = entities;
-    const albumExist = id in albums;
+    const { memPlaylists } = entities;
+    const memPlaylistExist = id in memPlaylists;
 
-    return !albumExist;
+    return !memPlaylistExist;
   },
 );

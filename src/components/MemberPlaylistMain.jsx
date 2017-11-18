@@ -2,16 +2,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import IMAGE_SIZES from '../constants/ImageConstants';
 import getImageUrl from '../utils/ImageUtils';
-import RelatedInfo from '../components/RelatedInfo'
+import Info from '../components/Info'
 import { MUSICIAN_PATH } from '../constants/RouterConstants';
+import { formatSeconds } from '../utils/NumberUtils';
 
 const propTypes = {
   navigateTo: PropTypes.func.isRequired,
-  album: PropTypes.shape({}).isRequired,
+  memberPlaylist: PropTypes.shape({}).isRequired,
 };
 
-const MemberPlaylistMain = ({ navigateTo, album }) => {
-  const { avatarUrl, description, ngheSiPHs, name, releaseDate } = album;
+const MemberPlaylistMain = ({ navigateTo, memberPlaylist }) => {
+  const { avatarUrl, description, name, dateCreated, dateModified, email } = memberPlaylist;
 
   return (
     <div className="user-main">
@@ -27,17 +28,34 @@ const MemberPlaylistMain = ({ navigateTo, album }) => {
             {name}
           </div>
         </div>
-        <RelatedInfo
-          title={'Musician\xa0\xa0\xa0\xa0'}
+        <Info
+          title={'Owner\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
           navigateTo={navigateTo}
-          content={ngheSiPHs}
+          content={[{
+            name: email
+          }]}
+          path={MUSICIAN_PATH}
+        />
+        <Info
+          title={'Created\xa0\xa0\xa0\xa0\xa0\xa0'}
+          navigateTo={navigateTo}
+          content={[{
+            name: formatSeconds(dateCreated)
+          }]}
+          path={MUSICIAN_PATH}
+        />
+        <Info
+          title={'Modified\xa0\xa0\xa0\xa0'}
+          navigateTo={navigateTo}
+          content={[{
+            name: formatSeconds(dateModified)
+          }]}
           path={MUSICIAN_PATH}
         />
         <div
           className="user-main__description"
           dangerouslySetInnerHTML={{
-            __html: `${releaseDate ? `Release date ${releaseDate}<br />` : ''}
-                     ${description ? `${description}` : ''}`
+            __html: `${description ? `${description}` : ''}`
           }}
         />
       </div>

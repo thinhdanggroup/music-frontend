@@ -36,14 +36,14 @@ const propTypes = {
 
 class MemberPlaylist extends Component {
   componentWillMount() {
-    const { fetchAlbumIfNeeded, id, playlist, shouldFetchUser } = this.props;
-    fetchAlbumIfNeeded(shouldFetchUser, id, playlist);
+    const { fetchMemberPlaylistIfNeeded, id, playlist, shouldFetchUser } = this.props;
+    fetchMemberPlaylistIfNeeded(shouldFetchUser, id, playlist);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchAlbumIfNeeded, id } = this.props;
+    const { fetchMemberPlaylistIfNeeded, id } = this.props;
     if (nextProps.id !== id) {
-      fetchAlbumIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
+      fetchMemberPlaylistIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
     }
   }
 
@@ -66,7 +66,7 @@ class MemberPlaylist extends Component {
       songs,
       toggleFollow,
       toggleLike,
-      album,
+      memberPlaylist,
     } = this.props;
     if (shouldFetchUser) {
       return <Loader className="loader--full" isLoading />;
@@ -80,7 +80,7 @@ class MemberPlaylist extends Component {
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
-              album={album}
+              memberPlaylist={memberPlaylist}
               navigateTo={navigateTo}
             />
             {!songs.length || !songs ? null :

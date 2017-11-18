@@ -4,9 +4,9 @@ import MemberPlaylist from '../components/MemberPlaylist';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
-import fetchAlbumIfNeeded from '../actions/MemberPlaylistActions';
+import fetchMemberPlaylistIfNeeded from '../actions/MemberPlaylistActions';
 import { getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getId, getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/MemberPlaylistSelectors';
+import { getId, getPlaylist, getShouldFetchUser, getSongs, getMemberPlaylist } from '../selectors/MemberPlaylistSelectors';
 
 const PlaylistContainer = props => <MemberPlaylist {...props} />;
 
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
     sidebarHeight: getSidebarHeight(state),
     shouldFetchUser: getShouldFetchUser(state),
     songs: getSongs(state),
-    album: getAlbum(state)
+    memberPlaylist: getMemberPlaylist(state)
   };
 };
 
@@ -33,7 +33,7 @@ const toggleFollow = () => { }
 const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
-  fetchAlbumIfNeeded,
+  fetchMemberPlaylistIfNeeded,
   login,
   toggleFollow,
   toggleLike,

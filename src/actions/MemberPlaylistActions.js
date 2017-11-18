@@ -20,6 +20,8 @@ const fetchMemberPlaylist = (id, playlist) => async (dispatch) => {
   // SELECT getInfoOfAPlaylist(playlistName := 'Nhac hay thang 11', memEmail := 'garen@gmail.com')
   let { json } = await callApi(`SELECT getInfoForPlaylistPage(playlistName := '${playlistName}', memEmail := '${email}')`);
   json = json.data.getinfoforplaylistpage
+  json.email = email
+  json.name = playlistName
 
   dispatch(fetchMemberPlaylistSuccess({
     memPlaylists: {
