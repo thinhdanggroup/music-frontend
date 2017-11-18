@@ -11,15 +11,11 @@ const propTypes = {
 };
 
 const HeartCount = ({ ratingCount }) => {
-  if (ratingCount) {
-    return (
-      <div className="heart__count">
-        {addCommas(ratingCount)}
-      </div>
-    );
-  }
-
-  return null;
+  return (
+    <div className="heart__count">
+      {addCommas(ratingCount)}
+    </div>
+  );
 };
 
 HeartCount.defaultProps = defaultProps;
