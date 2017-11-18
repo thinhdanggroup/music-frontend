@@ -35,6 +35,7 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, 
           />
         </div> */}
     </div>
+    <CommentForm id={id} postComment={postComment} />
     <SidebarBody>
       {comments.map((comment, i) => (
         <SongComment
@@ -44,14 +45,6 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, 
         />
       ))}
     </SidebarBody>
-    {/* <form onSubmit={this.handleSubmit}>
-        <label>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-        <p> {this.state.comment} </p>
-    </form>  */}
-    <CommentForm id={id} postComment={postComment} />
   </div>
 );
 
