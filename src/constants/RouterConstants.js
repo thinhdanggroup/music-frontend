@@ -7,7 +7,7 @@ export const STREAM_PATH = 'me/stream';
 export const USER_PATH = 'user/:id';
 export const MUSICIAN_PATH = 'musician/:id';
 export const ALBUM_PATH = 'album/:id';
-export const MEMBER_PLAYLIST_PATH = 'playlist/:memEmail/:name';
+export const MEMBER_PLAYLIST_PATH = 'member/:email/:playlistName';
 
 export const INITIAL_ROUTE = {
   keys: {},

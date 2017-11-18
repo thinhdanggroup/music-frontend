@@ -12,10 +12,10 @@ const fetchMemberPlaylistSuccess = entities => ({
 
 const fetchMemberPlaylist = (id, playlist) => async (dispatch) => {
   const splittedId = id.split('|')
-  const name = splittedId[0]
-  const memEmail = splittedId[1]
+  const email = splittedId[0]
+  const playlistName = splittedId[1]
 
-  let { json } = await callApi(`SELECT getInfoOfAPlaylist(playlistName := '${name}', memEmail := '${memEmail}')`);
+  let { json } = await callApi(`SELECT getInfoOfAPlaylist(playlistName := '${playlistName}', memEmail := '${email}')`);
   json = json.data.getinfoofaplaylist
 
   dispatch(fetchMemberPlaylistSuccess({
