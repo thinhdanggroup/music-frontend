@@ -36,7 +36,7 @@ const AlbumListItem = ({
   toggleLike,
 }) => {
   const { isPlaying } = player;
-  const { artworkUrl, id, title, releaseDate } = song;
+  const { artworkUrl, id, name, releaseDate } = song;
   // const { avatarUrl, username } = user;
 
   return (
@@ -64,7 +64,7 @@ const AlbumListItem = ({
           keys={{ id }}
           path={ALBUM_PATH}
         >
-          {title}
+          {name}
         </Link>
         <div className="song-list__item__meta">
           <div style={{ fontSize: 9 }}>
