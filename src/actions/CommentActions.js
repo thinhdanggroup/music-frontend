@@ -1,3 +1,4 @@
+import * as types from '../constants/ActionTypes';
 import { callApi } from '../utils/ApiUtils';
 
 const postCommentStatus = (json) => ({
