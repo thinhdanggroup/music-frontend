@@ -4,7 +4,61 @@ import SidebarBody from '../components/SidebarBody';
 import SongComment from '../components/SongComment';
 // import Switch from '../components/Switch';
 import { SONG_PATH } from '../constants/RouterConstants';
+import  {postComment}  from '../actions/CommentActions';
 
+class CommentForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      idBaiHat: this.props.id,
+      email: 'Garen@gmail.com',
+      comment: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRes = this.handleRes.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    // alert('A name was submitted: ' + this.state.value + this.state.idBaiHat + this.state.email);
+    console.log(this.state.value);
+    postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString(),this.handleRes);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          <input className = "comment__Thinh" type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        {/* <input type="submit" value="Submit" /> */}
+        {/* <p> {this.state.comment} </p> */}
+      </form>
+    );
+  }
+  handleRes(res) {
+    // console.log(res)
+    if (res.data.status === "Success")
+    {
+      // this.setState ({
+      //   comment: this.state.value
+      // });
+      window.location.reload();
+    }
+    else {
+      if (res.data.data.code === '22000')
+      {
+        alert("Khong chuoi the nhe");
+      }
+    }
+  }
+}
 const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   id: PropTypes.number.isRequired,
@@ -44,6 +98,14 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed }
         />
       ))}
     </SidebarBody>
+    {/* <form onSubmit={this.handleSubmit}>
+        <label>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        <p> {this.state.comment} </p>
+    </form>  */}
+    <CommentForm id = {id} />
   </div>
 );
 
