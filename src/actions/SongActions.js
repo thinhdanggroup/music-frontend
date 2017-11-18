@@ -7,14 +7,13 @@ import { callApi } from '../utils/ApiUtils';
 
 const fetchSong = (id, playlist) => async (dispatch) => {
   let { json } = await callApi(`SELECT getBaiHatById(idbaihat:='${id}')`);
-  var count = json.data.getbaihatbyid.commentCount
   json = json.data.getbaihatbyid
+
   const result = id;
   const entities = {
     songs: {
       [id]: json
     },
-    countComment: count
   }
 
   dispatch(fetchSongsSuccess(playlist, [result], entities, null, null));

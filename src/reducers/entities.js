@@ -7,7 +7,6 @@ const initialState = {
   users: {},
   musicians: {},
   albums: {},
-  countComment: 0
 };
 
 export default function entities(state = initialState, action) {

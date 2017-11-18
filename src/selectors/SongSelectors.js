@@ -40,7 +40,6 @@ export const getSongs = createSelector(
 );
 
 export const getTimed = state => Boolean(state.router.route.options.timed) || false;
-export const getCountComment = state => state.entities.countComment;
 export const getComments = createSelector(
   getIsActive,
   getTimed,
