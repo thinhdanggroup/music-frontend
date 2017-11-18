@@ -11,7 +11,7 @@ const fetchAlbumSuccess = entities => ({
 });
 
 const fetchAlbum = (id, playlist) => async (dispatch) => {
-  let { json } = await callApi(`SELECT getAlbumById(artistId := '${id}')`);
+  let { json } = await callApi(`SELECT getAlbumById(idAlbum := '${id}')`);
   json = json.data.getalbumbyid
 
   dispatch(fetchAlbumSuccess({

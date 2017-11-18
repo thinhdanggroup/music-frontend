@@ -4,7 +4,7 @@ import Album from '../components/Album';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
-import fetchAlbumIfNeeded from '../actions/MusicianActions';
+import fetchAlbumIfNeeded from '../actions/AlbumActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser, getMusician } from '../selectors/AlbumSelectors';
 
