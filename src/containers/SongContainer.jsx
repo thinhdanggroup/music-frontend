@@ -9,7 +9,7 @@ import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleLike } from '../actions/SessionActions';
 
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getComments, getPlaylist, getSong, getSongs, getTimed } from '../selectors/SongSelectors';
+import { getComments, getPlaylist, getSong, getSongs, getTimed,getCountComment } from '../selectors/SongSelectors';
 import { postComment } from '../actions/CommentActions'
 
 const SongContainer = props => <Song {...props} />;
@@ -30,6 +30,7 @@ const mapStateToProps = (state) => {
     song: getSong(state),
     songs: getSongs(state),
     timed: getTimed(state),
+    countComment: getCountComment(state),
   };
 };
 
