@@ -5,17 +5,21 @@ import { songSchema } from '../constants/Schemas';
 import { callApi } from '../utils/ApiUtils';
 
 
-const fetchAlbumSuccess = entities => ({
+const fetchMemberPlaylistSuccess = entities => ({
   type: types.FETCH_USER_SUCCESS,
   entities,
 });
 
-const fetchAlbum = (id, playlist) => async (dispatch) => {
-  let { json } = await callApi(`SELECT getAlbumById(idAlbum := '${id}')`);
-  json = json.data.getalbumbyid
+const fetchMemberPlaylist = (id, playlist) => async (dispatch) => {
+  const splittedId = id.split('|')
+  const name = splittedId[0]
+  const memEmail = splittedId[1]
 
-  dispatch(fetchAlbumSuccess({
-    albums: {
+  let { json } = await callApi(`SELECT getInfoOfAPlaylist(playlistName := '${name}', memEmail := '${memEmail}')`);
+  json = json.data.getinfoofaplaylist
+
+  dispatch(fetchMemberPlaylistSuccess({
+    memPlaylists: {
       [id]: json
     }
   }));
@@ -25,10 +29,10 @@ const fetchAlbum = (id, playlist) => async (dispatch) => {
   dispatch(fetchSongsSuccess(playlist, normSongs.result, normSongs.entities, null, null));
 };
 
-const fetchAlbumIfNeeded = (shouldFetchUser, id, playlist) => (dispatch) => {
+const fetchMemberPlaylistIfNeeded = (shouldFetchUser, id, playlist) => (dispatch) => {
   if (shouldFetchUser) {
-    dispatch(fetchAlbum(id, playlist));
+    dispatch(fetchMemberPlaylist(id, playlist));
   }
 };
 
-export default fetchAlbumIfNeeded;
+export default fetchMemberPlaylistIfNeeded;

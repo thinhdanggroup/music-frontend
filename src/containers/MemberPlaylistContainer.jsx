@@ -5,8 +5,8 @@ import MemberPlaylist from '../components/MemberPlaylist';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
 import fetchAlbumIfNeeded from '../actions/MemberPlaylistActions';
-import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/MemberPlaylistSelectors';
+import { getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
+import { getId, getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/MemberPlaylistSelectors';
 
 const PlaylistContainer = props => <MemberPlaylist {...props} />;
 

@@ -2,7 +2,9 @@ import { denormalize } from 'normalizr';
 import { createSelector } from 'reselect';
 import { ALBUM_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
 import { songSchema, albumSchema } from '../constants/Schemas';
-import { getEntities, getId, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
+import { getEntities, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
+
+export const getId = state => [state.router.route.keys.memEmail, state.router.route.keys.email].join('|');
 
 export const getPlaylist = createSelector(
   getId,
