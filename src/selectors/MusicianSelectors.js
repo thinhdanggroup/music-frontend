@@ -1,12 +1,12 @@
 import { denormalize } from 'normalizr';
 import { createSelector } from 'reselect';
-import { USER_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
+import { MUSICIAN_PLAYLIST_TYPE } from '../constants/PlaylistConstants';
 import { songSchema, musicianSchema } from '../constants/Schemas';
 import { getEntities, getId, getPlaylists, getSessionFollowings } from '../selectors/CommonSelectors';
 
 export const getPlaylist = createSelector(
   getId,
-  id => [USER_PLAYLIST_TYPE, id].join('|'),
+  id => [MUSICIAN_PLAYLIST_TYPE, id].join('|'),
 );
 
 export const getSongs = createSelector(

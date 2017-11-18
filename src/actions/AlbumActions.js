@@ -20,7 +20,7 @@ const fetchAlbum = (id, playlist) => async (dispatch) => {
     }
   }));
 
-  const normSongs = normalize(json.artistSongs, [songSchema]);
+  const normSongs = normalize(json.baiHats, [songSchema]);
 
   dispatch(fetchSongsSuccess(playlist, normSongs.result, normSongs.entities, null, null));
 };
