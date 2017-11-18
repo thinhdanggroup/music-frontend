@@ -37,7 +37,7 @@ const toggleFollow = () => { }
 const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
-  fetchMusicianIfNeeded,
+  fetchAlbumIfNeeded,
   login,
   toggleFollow,
   toggleLike,
