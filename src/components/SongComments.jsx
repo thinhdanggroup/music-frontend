@@ -20,7 +20,7 @@ class CommentForm extends React.Component {
     this.handleRes = this.handleRes.bind(this);
   }
   handleRes(res) {
-    // console.log(res)
+    console.log(res)
     if (res.status === "Success")
     {
       // this.setState ({
@@ -42,7 +42,8 @@ class CommentForm extends React.Component {
   handleSubmit(event) {
     // alert('A name was submitted: ' + this.state.value + this.state.idBaiHat + this.state.email);
     console.log(this.state.value);
-    this.handleRes(this.props.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString()));
+    this.props.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString());
+    // this.handleRes(this.props.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString()));
     // postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString(),this.handleRes);
     event.preventDefault();
   }
