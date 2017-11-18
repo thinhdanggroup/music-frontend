@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Router from '../components/Router';
 // import HistoryContainer from '../containers/HistoryContainer';
-// import NavContainer from '../containers/NavContainer';
+import NavContainer from '../containers/NavContainer';
 // import PlayerContainer from '../containers/PlayerContainer';
 
 const propTypes = {
@@ -31,7 +31,7 @@ class Root extends Component {
     const { router, routes } = this.props;
     return (
       <div>
-        {/* <NavContainer /> */}
+        <NavContainer />
         <Router router={router} routes={routes} />
         {/* <PlayerContainer /> */}
         {/* <HistoryContainer /> */}
