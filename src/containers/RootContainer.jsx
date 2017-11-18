@@ -9,6 +9,7 @@ import SongContainer from '../containers/SongContainer';
 // import SongsContainer from '../containers/SongsContainer';
 import MusicianContainer from '../containers/MusicianContainer';
 import AlbumContainer from '../containers/AlbumContainer';
+import MemberPlaylistContainer from '../containers/MemberPlaylistContainer';
 
 import {
   INDEX_PATH,
@@ -18,6 +19,7 @@ import {
   USER_PATH,
   MUSICIAN_PATH,
   ALBUM_PATH,
+  MEMBER_PLAYLIST_PATH,
 } from '../constants/RouterConstants';
 
 const RootContainer = props => <Root {...props} />;
@@ -26,7 +28,16 @@ const mapStateToProps = (state) => {
   const { router } = state;
 
   return {
-    paths: [INDEX_PATH, PLAYLIST_PATH, SONG_PATH, SONGS_PATH, USER_PATH, MUSICIAN_PATH, ALBUM_PATH],
+    paths: [
+      INDEX_PATH,
+      PLAYLIST_PATH,
+      SONG_PATH,
+      SONGS_PATH,
+      USER_PATH,
+      MUSICIAN_PATH,
+      ALBUM_PATH,
+      MEMBER_PLAYLIST_PATH
+    ],
     router,
     routes: {
       // [INDEX_PATH]: SongsContainer,
@@ -36,6 +47,7 @@ const mapStateToProps = (state) => {
       // [USER_PATH]: UserContainer,
       [MUSICIAN_PATH]: MusicianContainer,
       [ALBUM_PATH]: AlbumContainer,
+      [MEMBER_PLAYLIST_PATH]: MemberPlaylistContainer,
     },
   };
 };

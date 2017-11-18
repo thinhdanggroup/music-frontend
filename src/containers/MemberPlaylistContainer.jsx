@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Album from '../components/Album';
+import MemberPlaylist from '../components/MemberPlaylist';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
-import fetchAlbumIfNeeded from '../actions/PlaylistAction';
+import fetchAlbumIfNeeded from '../actions/MemberPlaylistActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/PlaylistSelectors';
+import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/MemberPlaylistSelectors';
 
-const PlaylistContainer = props => <Album {...props} />;
+const PlaylistContainer = props => <MemberPlaylist {...props} />;
 
 const mapStateToProps = (state) => {
   const { player } = state;

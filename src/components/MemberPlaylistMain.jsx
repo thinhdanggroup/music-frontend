@@ -10,7 +10,7 @@ const propTypes = {
   album: PropTypes.shape({}).isRequired,
 };
 
-const AlbumMain = ({ navigateTo, album }) => {
+const MemberPlaylistMain = ({ navigateTo, album }) => {
   const { avatarUrl, description, ngheSiPHs, name, releaseDate } = album;
 
   return (
@@ -45,6 +45,6 @@ const AlbumMain = ({ navigateTo, album }) => {
   );
 };
 
-AlbumMain.propTypes = propTypes;
+MemberPlaylistMain.propTypes = propTypes;
 
-export default AlbumMain;
+export default MemberPlaylistMain;

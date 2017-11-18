@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
-import AlbumMain from '../components/AlbumMain';
+import MemberPlaylistMain from '../components/MemberPlaylistMain';
 
 const defaultProps = {
   playingSongId: null,
@@ -34,7 +34,7 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-class Album extends Component {
+class MemberPlaylist extends Component {
   componentWillMount() {
     const { fetchAlbumIfNeeded, id, playlist, shouldFetchUser } = this.props;
     fetchAlbumIfNeeded(shouldFetchUser, id, playlist);
@@ -76,7 +76,7 @@ class Album extends Component {
       <div className="container">
         <div className="user content">
           <div className="user__main">
-            <AlbumMain
+            <MemberPlaylistMain
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
@@ -107,7 +107,7 @@ class Album extends Component {
   }
 }
 
-Album.defaultProps = defaultProps;
-Album.propTypes = propTypes;
+MemberPlaylist.defaultProps = defaultProps;
+MemberPlaylist.propTypes = propTypes;
 
-export default stickyOnScroll(Album, 50);
+export default stickyOnScroll(MemberPlaylist, 50);
