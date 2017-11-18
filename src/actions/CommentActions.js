@@ -10,12 +10,19 @@ const fetchSongCommentsSuccess = (id, comments, commentCount) => ({
   },
 });
 
+const fetchSongComments = idBaiHat => async (dispatch) => {
+  const { json } = await callApi(`SELECT getCmtByIdBaiHat(idbaihat:='${idBaiHat}')`);
+
+  const comments = json.data.getcmtbyidbaihat
+  const commentCount = comments.length
+
+  dispatch(fetchSongCommentsSuccess(idBaiHat, json.data.getcmtbyidbaihat, commentCount));
+};
+
 const postfetchComments = (email, noiDung, idBaiHat) => async (dispatch) => {
   var data = await callApi(`SELECT postComment('${email}','${noiDung}','${idBaiHat}')`);
-  const { json } = await callApi(`SELECT getBaiHatById(idbaihat:='${idBaiHat}')`);
 
-  const { comments, commentCount } = json.data.getbaihatbyid.commentCount;
-  dispatch(fetchSongCommentsSuccess(idBaiHat, json.data.getbaihatbyid.comments, json.data.getbaihatbyid.commentCount));
+  dispatch(fetchSongComments(idBaiHat))
 };
 
 export const postComment = (email, noiDung, idBaiHat) => (dispatch) => {
