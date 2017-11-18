@@ -1,6 +1,5 @@
 import * as types from '../constants/ActionTypes';
 import { callApi } from '../utils/ApiUtils';
-import * as types from '../constants/ActionTypes';
 const fetchSongCommentsSuccess = (id, comments) => ({
   type: types.FETCH_SONG_COMMENTS_SUCCESS,
   entities: {
