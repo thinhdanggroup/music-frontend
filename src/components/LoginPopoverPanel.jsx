@@ -6,14 +6,25 @@ const propTypes = {
 };
 
 const LoginPopoverPanel = ({ login }) => (
-  <div
-    className="button button--orange button--block button--margin"
-    onClick={login}
-    role="button"
-    tabIndex="0"
-  >
-    Sign into SoundCloud
+  <div>
+    <div
+      className="button button--orange button--block button--margin"
+      onClick={login}
+      role="button"
+      tabIndex="0"
+    >
+      Garen@gmail.com
+    </div>
+    <div
+      className="button button--orange button--block button--margin"
+      onClick={login}
+      role="button"
+      tabIndex="0"
+    >
+      yasucmno@gmail.com
+    </div>
   </div>
+
 );
 
 LoginPopoverPanel.propTypes = propTypes;
