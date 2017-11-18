@@ -16,9 +16,10 @@ const fetchMemberPlaylist = (id, playlist) => async (dispatch) => {
   const playlistName = splittedId[1].replace(/\-/g, ' ')
 
   // http://localhost:3000/#/member/garen@gmail.com/Nhac-hay-thang-11
+  // http://localhost:3000/#/member/garen@gmail.com/Nhac hay thang 11
   // SELECT getInfoOfAPlaylist(playlistName := 'Nhac hay thang 11', memEmail := 'garen@gmail.com')
-  let { json } = await callApi(`SELECT getInfoOfAPlaylist(playlistName := '${playlistName}', memEmail := '${email}')`);
-  json = json.data.getinfoofaplaylist
+  let { json } = await callApi(`SELECT getInfoForPlaylistPage(playlistName := '${playlistName}', memEmail := '${email}')`);
+  json = json.data.getinfoforplaylistpage
 
   dispatch(fetchMemberPlaylistSuccess({
     memPlaylists: {
@@ -26,7 +27,7 @@ const fetchMemberPlaylist = (id, playlist) => async (dispatch) => {
     }
   }));
 
-  const normSongs = normalize(json.baiHats, [songSchema]);
+  const normSongs = normalize(json.playlistSongs, [songSchema]);
 
   dispatch(fetchSongsSuccess(playlist, normSongs.result, normSongs.entities, null, null));
 };
