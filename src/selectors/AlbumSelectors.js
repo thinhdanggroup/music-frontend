@@ -19,7 +19,7 @@ export const getSongs = createSelector(
   ),
 );
 
-export const getMusician = createSelector(
+export const getAlbum = createSelector(
   getId,
   getEntities,
   (id, entities) => (id in entities.albums
@@ -32,11 +32,9 @@ export const getShouldFetchUser = createSelector(
   getId,
   getEntities,
   (id, entities) => {
-    const { musicians } = entities;
-    const musicianExist = id in musicians;
-    const musicianHasProfiles = musicianExist ? 'profiles' in musicians[id] : false;
+    const { albums } = entities;
+    const albumExist = id in albums;
 
-    // return !userExists || !userHasProfiles;
-    return !musicianExist;
+    return !albumExist;
   },
 );

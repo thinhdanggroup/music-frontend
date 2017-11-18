@@ -6,7 +6,7 @@ import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
 import fetchAlbumIfNeeded from '../actions/AlbumActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getFollowings, getIsFollowing, getPlaylist, getProfiles, getShouldFetchUser, getSongs, getUser, getMusician } from '../selectors/AlbumSelectors';
+import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/AlbumSelectors';
 
 const AlbumContainer = props => <Album {...props} />;
 
@@ -14,19 +14,16 @@ const mapStateToProps = (state) => {
   const { player } = state;
 
   return {
-    followings: getFollowings(state),
     id: getId(state),
     isAuthenticated: getIsAuthenticated(state),
-    isFollowing: getIsFollowing(state),
     likes: getLikes(state),
     player,
     playingSongId: getPlayingSongId(state),
     playlist: getPlaylist(state),
-    profiles: getProfiles(state),
     sidebarHeight: getSidebarHeight(state),
     shouldFetchUser: getShouldFetchUser(state),
     songs: getSongs(state),
-    musician: getMusician(state)
+    album: getAlbum(state)
   };
 };
 

@@ -15,7 +15,7 @@ const fetchAlbum = (id, playlist) => async (dispatch) => {
   json = json.data.getalbumbyid
 
   dispatch(fetchAlbumSuccess({
-    musicians: {
+    albums: {
       [id]: json
     }
   }));

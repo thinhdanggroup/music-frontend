@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
-import AlbumMain from '../components/MusicianMain';
+import AlbumMain from '../components/AlbumMain';
 
 const defaultProps = {
   playingSongId: null,
@@ -66,13 +66,11 @@ class Album extends Component {
       songs,
       toggleFollow,
       toggleLike,
-      musician,
+      album,
     } = this.props;
     if (shouldFetchUser) {
       return <Loader className="loader--full" isLoading />;
     }
-
-    const albums = musician.artistAlbums
 
     return (
       <div className="container">
@@ -82,7 +80,7 @@ class Album extends Component {
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
-              musician={musician}
+              album={album}
             />
             {!songs.length || !songs ? null :
               <div>
