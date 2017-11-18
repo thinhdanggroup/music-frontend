@@ -12,7 +12,8 @@ class CommentForm extends React.Component {
       value: '',
       idBaiHat: this.props.id,
       email: 'Garen@gmail.com',
-      comment: ''};
+      comment: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,32 +22,30 @@ class CommentForm extends React.Component {
   }
   handleRes(res) {
     // alert(res)
-    if (res !== undefined){
-      if (res.status === "Success")
-      {
+    if (res !== undefined) {
+      if (res.status === "Success") {
         console.log("success");
         // this.state.comment = res.counter;
       }
       else {
-        if (res.data.data.code === '22000')
-        {
+        if (res.data.data.code === '22000') {
           alert("Khong chuoi the nhe");
         }
       }
     }
   }
-  clearCommentForm () {
-    this.setState({value: ''});
+  clearCommentForm() {
+    this.setState({ value: '' });
   }
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
   handleSubmit(event) {
     // alert('A name was submitted: ' + this.state.value + this.state.idBaiHat + this.state.email);
     // console.log(this.state.value);
     // this.props.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString());
-    var res = this.props.postComment(this.state.email.toString(),this.state.value.toString(),this.state.idBaiHat.toString());
+    var res = this.props.postComment(this.state.email.toString(), this.state.value.toString(), this.state.idBaiHat.toString());
     this.clearCommentForm();
     // console.log(res);
     // this.handleRes(res);
@@ -58,14 +57,14 @@ class CommentForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <input className = "comment__Thinh" type="text" value={this.state.value} onChange={this.handleChange} />
+          <input className="comment__Thinh" type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
         <p> {this.state.comment} </p>
       </form>
     );
   }
-  
+
 }
 const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
@@ -76,7 +75,7 @@ const propTypes = {
   timed: PropTypes.bool.isRequired,
 };
 
-const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed ,postComment,countComment}) => (
+const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, postComment, countComment }) => (
   <div
     className={`sidebar ${sticky ? 'sidebar--sticky' : ''}`}
     style={{ height: `${sidebarHeight}px` }}
@@ -85,9 +84,8 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed ,
       <div className="sidebar__header__left">
         Comments
       </div>
-      <div>
-        {console.log(countComment)}
-        Count: {parseInt(countComment)}
+      <div className="sidebar__header__right">
+        ({parseInt(countComment)})
       </div>
       {/* <div className="sidebar__header__right">
           <Switch
@@ -117,7 +115,7 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed ,
         <input type="submit" value="Submit" />
         <p> {this.state.comment} </p>
     </form>  */}
-    <CommentForm id = {id} postComment= {postComment}  />
+    <CommentForm id={id} postComment={postComment} />
   </div>
 );
 

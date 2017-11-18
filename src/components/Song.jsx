@@ -15,7 +15,6 @@ const defaultProps = {
 const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchSongIfNeeded: PropTypes.func.isRequired,
-  // id: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   likes: PropTypes.shape({}).isRequired,
@@ -109,8 +108,8 @@ class Song extends Component {
               sidebarHeight={sidebarHeight}
               sticky={sticky}
               timed={timed}
-              postComment = {this.props.postComment}
-              countComment = {countComment}
+              postComment={this.props.postComment}
+              countComment={countComment}
             />
           </div>
         </div>

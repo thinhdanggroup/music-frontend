@@ -1,20 +1,20 @@
 import * as types from '../constants/ActionTypes';
 import { callApi } from '../utils/ApiUtils';
-const fetchSongCommentsSuccess = (id, comments,count) => ({
+const fetchSongCommentsSuccess = (id, comments, commentCount) => ({
   type: types.FETCH_SONG_COMMENTS_SUCCESS,
   entities: {
     songs: {
-      [id]: { comments },
+      [id]: { comments, commentCount },
     },
-    countComment: count,
   },
 });
 
 const postfetchComments = (email, noiDung, idBaiHat) => async (dispatch) => {
   var data = await callApi(`SELECT postComment('${email}','${noiDung}','${idBaiHat}')`);
   const { json } = await callApi(`SELECT getBaiHatById(idbaihat:='${idBaiHat}')`);
-  console.log(json.data.getbaihatbyid.commentCount);
-  dispatch(fetchSongCommentsSuccess(idBaiHat, json.data.getbaihatbyid.comments,json.data.getbaihatbyid.commentCount));
+
+  const { comments, commentCount } = json.data.getbaihatbyid.commentCount;
+  dispatch(fetchSongCommentsSuccess(idBaiHat, json.data.getbaihatbyid.comments, json.data.getbaihatbyid.commentCount));
 
   // dispatch(postCommentStatus(json.status));
 };
