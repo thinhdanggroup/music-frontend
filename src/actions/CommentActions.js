@@ -29,4 +29,17 @@ export const postComment = (email, noiDung, idBaiHat) => (dispatch) => {
 //   }).then(then)
 // }
 
- 
+const fetchSongCommentsSuccess = (id, comments) => ({
+  type: types.FETCH_SONG_COMMENTS_SUCCESS,
+  entities: {
+    songs: {
+      [id]: { comments },
+    },
+  },
+});
+
+export const fetchSongComments = id => async (dispatch) => {
+  const { json } = await callApi(`SELECT getBaiHatById(idbaihat:='${id}')`);
+
+  dispatch(fetchSongCommentsSuccess(id, json.data.getbaihatbyid.comments));
+};
