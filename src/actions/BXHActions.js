@@ -6,28 +6,35 @@ import { callApi } from '../utils/ApiUtils';
 
 
 const fetchBXHSuccess = entities => ({
-  type: types.FETCH_BXH_SUCCESS,
+  type: types.FETCH_USER_SUCCESS,
   entities,
 });
 
-const fetchBXH = () => async (dispatch) => {
+const fetchBXH = (playlist) => async (dispatch) => {
   let { json } = await callApi(`SELECT getTopBXH(10);`);
   json = json.data.gettopbxh;
   console.log(json);
   // dispatch(fetchBXHSuccess({
-  //   albums: {
-  //     [id]: json
-  //   }
+  //     songs: {
+  //       [id]: json
+  //     },
   // }));
+  dispatch(fetchBXHSuccess({
+    albums: {
+      1111111 : json
+    }
+  }));
 
   const normSongs = normalize(json.baiHats, [songSchema]);
 
-  dispatch(fetchSongsSuccess(null,normSongs.result, normSongs.entities, null, null));
+  dispatch(fetchSongsSuccess(playlist,normSongs.result, normSongs.entities, null, null));
 };
 
-const fetchBXHIfNeeded = (shouldFetchUser) => (dispatch) => {
+
+
+const fetchBXHIfNeeded = (shouldFetchUser,playlist) => (dispatch) => {
   if (shouldFetchUser) {
-    dispatch(fetchBXH());
+    dispatch(fetchBXH(playlist));
   }
 };
 

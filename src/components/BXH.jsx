@@ -36,8 +36,8 @@ const propTypes = {
 
 class BXH extends Component {
   componentWillMount() {
-    const { fetchBXHIfNeeded, shouldFetchUser} = this.props;
-    fetchBXHIfNeeded(shouldFetchUser);
+    const { fetchBXHIfNeeded, shouldFetchUser,playlist} = this.props;
+    fetchBXHIfNeeded(shouldFetchUser,playlist);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,9 +69,9 @@ class BXH extends Component {
       toggleLike,
       album,
     } = this.props;
-    if (shouldFetchUser) {
-      return <Loader className="loader--full" isLoading />;
-    }
+    // if (shouldFetchUser) {
+    //   return <Loader className="loader--full" isLoading />;
+    // }
 
     return (
       <div className="container">
