@@ -34,17 +34,18 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-class Album extends Component {
+class BXH extends Component {
   componentWillMount() {
-    const { fetchAlbumIfNeeded, id, playlist, shouldFetchUser } = this.props;
-    fetchAlbumIfNeeded(shouldFetchUser, id, playlist);
+    const { fetchBXHIfNeeded, shouldFetchUser} = this.props;
+    fetchBXHIfNeeded(shouldFetchUser);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchAlbumIfNeeded, id } = this.props;
-    if (nextProps.id !== id) {
-      fetchAlbumIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
-    }
+    const { fetchBXHIfNeeded,shouldFetchUser } = this.props;
+    // if (nextProps.id !== id) {
+      // fetchBXHIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
+    // }
+    // fetchBXHIfNeeded(shouldFetchUser);
   }
 
   render() {
@@ -107,7 +108,7 @@ class Album extends Component {
   }
 }
 
-Album.defaultProps = defaultProps;
-Album.propTypes = propTypes;
+BXH.defaultProps = defaultProps;
+BXH.propTypes = propTypes;
 
-export default stickyOnScroll(Album, 50);
+export default stickyOnScroll(BXH, 50);

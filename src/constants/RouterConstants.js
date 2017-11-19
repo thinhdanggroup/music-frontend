@@ -8,6 +8,7 @@ export const USER_PATH = 'user/:id';
 export const MUSICIAN_PATH = 'musician/:id';
 export const ALBUM_PATH = 'album/:id';
 export const MEMBER_PLAYLIST_PATH = 'member/:email/:playlistName';
+export const BXH_PATH = 'bxh';
 
 export const INITIAL_ROUTE = {
   keys: {},
