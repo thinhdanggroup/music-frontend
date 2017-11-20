@@ -10,6 +10,7 @@ import SongContainer from '../containers/SongContainer';
 import MusicianContainer from '../containers/MusicianContainer';
 import AlbumContainer from '../containers/AlbumContainer';
 import MemberPlaylistContainer from '../containers/MemberPlaylistContainer';
+import BXHContainer from '../containers/BXHContainer';
 
 import {
   INDEX_PATH,
@@ -20,6 +21,7 @@ import {
   MUSICIAN_PATH,
   ALBUM_PATH,
   MEMBER_PLAYLIST_PATH,
+  BXH_PATH
 } from '../constants/RouterConstants';
 
 const RootContainer = props => <Root {...props} />;
@@ -36,7 +38,8 @@ const mapStateToProps = (state) => {
       USER_PATH,
       MUSICIAN_PATH,
       ALBUM_PATH,
-      MEMBER_PLAYLIST_PATH
+      MEMBER_PLAYLIST_PATH,
+      BXH_PATH
     ],
     router,
     routes: {
@@ -48,6 +51,7 @@ const mapStateToProps = (state) => {
       [MUSICIAN_PATH]: MusicianContainer,
       [ALBUM_PATH]: AlbumContainer,
       [MEMBER_PLAYLIST_PATH]: MemberPlaylistContainer,
+      [BXH_PATH] : BXHContainer
     },
   };
 };
