@@ -46,10 +46,7 @@ const mapStateToProps = (state) => {
     router,
     routes: {
       [INDEX_PATH]: BXHContainer,
-      // [PLAYLIST_PATH]: SongsContainer,
       [SONG_PATH]: SongContainer,
-      // [SONGS_PATH]: SongsContainer,
-      // [USER_PATH]: UserContainer,
       [MUSICIAN_PATH]: MusicianContainer,
       [ALBUM_PATH]: AlbumContainer,
       [MEM_PATH]: MemberContainer,
