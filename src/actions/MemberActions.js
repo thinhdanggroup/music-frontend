@@ -13,7 +13,7 @@ const fetchMemberSuccess = entities => ({
 const fetchMember = (email) => async (dispatch) => {
   let { json } = await callApi(`SELECT getInfoForPersonalPage('${email}')`);
   json = json.data.getinfoforpersonalpage
-  console.log(json)
+
   dispatch(fetchMemberSuccess({
     members: {
       [email]: json

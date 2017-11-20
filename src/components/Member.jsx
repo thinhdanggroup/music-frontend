@@ -73,7 +73,6 @@ class Member extends Component {
     }
 
     const memPlaylists = member.memPlaylists
-    memPlaylists.email = id
 
     return (
       <div className="container">
@@ -93,6 +92,7 @@ class Member extends Component {
                   isAuthenticated={isAuthenticated}
                   likes={likes}
                   login={login}
+                  memberEmail={member.email}
                   navigateTo={navigateTo}
                   player={player}
                   playingSongId={playingSongId}
