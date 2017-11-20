@@ -4,6 +4,7 @@ import BXH from '../components/BXH';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
 // import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
+import toggleLike  from '../actions/RatingActions';
 import fetchBXHIfNeeded from '../actions/BXHActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
 import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/AlbumSelectors';
@@ -30,7 +31,7 @@ const mapStateToProps = (state) => {
 const playSong = () => { }
 const login = () => { }
 const toggleFollow = () => { }
-const toggleLike = () => { }
+// const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
   fetchBXHIfNeeded,

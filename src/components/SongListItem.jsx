@@ -91,6 +91,7 @@ const SongListItem = ({
             login={login}
             playbackCount={playbackCount}
             toggleLike={toggleLike}
+            song = {song}
           />
         </div>
       </div>

@@ -109,6 +109,7 @@ const SongMain = ({
           login={login}
           playbackCount={playbackCount}
           toggleLike={toggleLike}
+          song={song}
         />
         <div className="song-main__description">
           {description}

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Heart from '../components/Heart';
+import Rating from '../components/Rating';
 import { addCommas } from '../utils/NumberUtils';
 
 const defaultProps = {
@@ -17,6 +18,7 @@ const propTypes = {
   login: PropTypes.func.isRequired,
   playbackCount: PropTypes.number.isRequired,
   toggleLike: PropTypes.func.isRequired,
+  songs: PropTypes.number.isRequired,
 };
 
 const Stats = ({
@@ -29,6 +31,7 @@ const Stats = ({
   login,
   playbackCount,
   toggleLike,
+  song
 }) => (
     <div className={`stats ${className}`}>
       <Heart
@@ -39,6 +42,7 @@ const Stats = ({
         liked={liked}
         login={login}
         toggleLike={toggleLike}
+        song = {song}
       />
       <div className="stats__stat">
         <i className="stats__stat__icon ion-play" />
@@ -52,6 +56,16 @@ const Stats = ({
           {addCommas(commentCount)}
         </span>
       </div>
+      <Rating
+        className="stats__stat stats__stat--heart"
+        ratingCount={ratingCount}
+        id={id}
+        isAuthenticated={isAuthenticated}
+        liked={liked}
+        login={login}
+        toggleLike={toggleLike}
+        song = {song}
+      />
     </div>
   );
 
