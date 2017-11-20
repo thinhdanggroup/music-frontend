@@ -13,10 +13,11 @@ const propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   login: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
+  navigateTo: PropTypes.func.isRequired,
   user: PropTypes.shape({}),
 };
 
-const NavUser = ({ isAuthenticated, login, logout, user }) => {
+const NavUser = ({ isAuthenticated, login, logout, user, navigateTo }) => {
   if (isAuthenticated) {
     // const { avatarUrl } = user;
     const avatarUrl = null
@@ -32,7 +33,7 @@ const NavUser = ({ isAuthenticated, login, logout, user }) => {
           />
           <i className="nav-user__chevron ion-chevron-down" />
         </div>
-        <SessionPopoverPanel logout={logout} />
+        <SessionPopoverPanel logout={logout} navigateTo={navigateTo} user={user} />
       </Popover>
     );
   }

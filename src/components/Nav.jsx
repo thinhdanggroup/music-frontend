@@ -78,6 +78,7 @@ const Nav = ({
           <NavUser
             isAuthenticated={isAuthenticated}
             login={login}
+            navigateTo={navigateTo}
             logout={logout}
             showPlaylist={showPlaylist}
             user={user}
