@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Heart from '../components/Heart';
-import RatingContainer from '../components/RatingContainer';
+import RatingContainer from '../containers/RatingContainer';
 import { addCommas } from '../utils/NumberUtils';
 
 const defaultProps = {
@@ -57,14 +57,7 @@ const Stats = ({
         </span>
       </div>
       <RatingContainer
-        className="stats__stat stats__stat--heart"
-        ratingCount={ratingCount}
         id={id}
-        isAuthenticated={isAuthenticated}
-        liked={liked}
-        login={login}
-        toggleLike={toggleLike}
-        song={song}
       />
     </div>
   );
