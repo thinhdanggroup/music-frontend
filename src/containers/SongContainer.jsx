@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 
 const login = () => { }
 const playSong = () => { }
-// const toggleLike = () => { }
+const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
   fetchSongIfNeeded,

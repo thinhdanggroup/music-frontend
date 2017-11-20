@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
 const playSong = () => { }
 const login = () => { }
 const toggleFollow = () => { }
-// const toggleLike = () => { }
+const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
   fetchBXHIfNeeded,
