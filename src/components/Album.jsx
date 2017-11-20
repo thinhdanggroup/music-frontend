@@ -76,13 +76,13 @@ class Album extends Component {
       <div className="container">
         <div className="user content">
           <div className="user__main">
-            {/* <AlbumMain
+            <AlbumMain
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
               album={album}
               navigateTo={navigateTo}
-            /> */}
+            />
             {!songs.length || !songs ? null :
               <div>
                 <SongList

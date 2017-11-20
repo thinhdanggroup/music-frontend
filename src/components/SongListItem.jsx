@@ -38,6 +38,7 @@ const SongListItem = ({
   const { isPlaying } = player;
   const { artworkUrl, commentCount, ratingCount, id, playbackCount, name, user } = song;
   // const { avatarUrl, username } = user;
+  const avatarUrl = require('../images/defaultBH.png')
 
   return (
     <div className={`song-list__item ${isActive ? 'song-list__item--active' : ''}`}>
@@ -91,7 +92,7 @@ const SongListItem = ({
             login={login}
             playbackCount={playbackCount}
             toggleLike={toggleLike}
-            song = {song}
+            song={song}
           />
         </div>
       </div>

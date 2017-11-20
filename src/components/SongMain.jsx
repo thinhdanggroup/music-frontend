@@ -53,6 +53,8 @@ const SongMain = ({
     genres[i].id = genre.name
   })
 
+  const avatarUrl = require('../images/defaultBH.png')
+
   return (
     <div className={`song-main ${isActive ? 'song-main--active' : ''}`}>
       <div className="song-main__artwork">
