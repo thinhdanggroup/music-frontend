@@ -78,17 +78,23 @@ export const getLikes = state => state.session.likes;
 export const getNewStreamSongs = state => state.session.newStreamSongs;
 export const getOauthToken = state => state.session.oauthToken;
 export const getSessionId = state => state.session.id;
-export const getSessionUser = createSelector(
-  getSessionId,
-  getEntities,
-  (id, entities) => (id in entities.users
-    ? entities.users[id]
-    : null
-  ),
-);
+// export const getSessionUser = createSelector(
+//   getSessionId,
+//   getEntities,
+//   (id, entities) => (id in entities.users
+//     ? entities.users[id]
+//     : null
+//   ),
+// );
+export const getSessionUser = getOauthToken
+// export const getIsAuthenticated = createSelector(
+//   getOauthToken,
+//   getSessionUser,
+//   (oauthToken, user) => Boolean(oauthToken && user),
+// );
 export const getIsAuthenticated = createSelector(
   getOauthToken,
   getSessionUser,
-  (oauthToken, user) => Boolean(oauthToken && user),
+  (oauthToken, user) => Boolean(oauthToken),
 );
 export const getSessionFollowings = state => state.session.followings;

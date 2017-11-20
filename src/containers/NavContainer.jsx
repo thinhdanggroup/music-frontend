@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { navigateTo } from '../actions/RouterActions';
-// import { fetchNewStreamSongs, loadNewStreamSongs, login, logout } from '../actions/SessionActions';
+import { login, logout } from '../actions/SessionActions';
 import Nav from '../components/Nav';
 import { getIsAuthenticated, getNewStreamSongs, getSessionUser, getShowLikes, getShowPlaylist, getShowStream } from '../selectors/CommonSelectors';
 import { getNavPlaylist, getNavPlaylists, getStreamFutureUrl } from '../selectors/NavSelectors';
@@ -22,8 +22,6 @@ const mapStateToProps = state => ({
 
 const fetchNewStreamSongs = () => { }
 const loadNewStreamSongs = () => { }
-const login = () => { }
-const logout = () => { }
 
 export default connect(mapStateToProps, {
   fetchNewStreamSongs,
