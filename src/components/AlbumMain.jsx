@@ -11,7 +11,8 @@ const propTypes = {
 };
 
 const AlbumMain = ({ navigateTo, album }) => {
-  const { avatarUrl, description, ngheSiPHs, name, releaseDate } = album;
+  const { description, ngheSiPHs, name, releaseDate } = album;
+  const avatarUrl = require('../images/defaultAlbum.png')
 
   return (
     <div className="user-main">

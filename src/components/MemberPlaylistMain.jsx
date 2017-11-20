@@ -12,7 +12,9 @@ const propTypes = {
 };
 
 const MemberPlaylistMain = ({ navigateTo, memberPlaylist }) => {
-  const { avatarUrl, description, name, dateCreated, dateModified, email } = memberPlaylist;
+  const { description, name, dateCreated, dateModified, email } = memberPlaylist;
+
+  const avatarUrl = require('../images/defaultAlbum.png')
 
   return (
     <div className="user-main">

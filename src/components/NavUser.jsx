@@ -20,7 +20,8 @@ const propTypes = {
 const NavUser = ({ isAuthenticated, login, logout, user, navigateTo }) => {
   if (isAuthenticated) {
     // const { avatarUrl } = user;
-    const avatarUrl = null
+    const avatarUrl = require('../images/defaultTV.png')
+
     return (
       <Popover className="nav-user popover--right">
         <div className="nav-user__trigger">

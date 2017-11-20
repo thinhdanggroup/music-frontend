@@ -36,8 +36,9 @@ const AlbumListItem = ({
   toggleLike,
 }) => {
   const { isPlaying } = player;
-  const { artworkUrl, id, name, releaseDate } = song;
+  const { id, name, releaseDate } = song;
   // const { avatarUrl, username } = user;
+  const artworkUrl = require('../images/defaultAlbum.png')
 
   return (
     <div className={`song-list__item ${isActive ? 'song-list__item--active' : ''}`}>

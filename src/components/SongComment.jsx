@@ -14,7 +14,8 @@ const propTypes = {
 
 const SongComment = ({ comment, index, navigateTo }) => {
   const { body, timestamp, email } = comment;
-  const { avatarUrl, username } = email;
+  // const { avatarUrl, username } = email;
+  const avatarUrl = require('../images/defaultTV.png')
 
   return (
     <div className="song-comment" style={{ animationDelay: `${index * 50}ms` }}>

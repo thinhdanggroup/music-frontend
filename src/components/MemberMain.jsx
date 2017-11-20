@@ -12,7 +12,9 @@ const propTypes = {
 };
 
 const MemberMain = ({ navigateTo, member }) => {
-  const { avatarUrl, HO, TEN, TENLOT, TAIKHOAN, memPlaylists } = member;
+  const { HO, TEN, TENLOT, TAIKHOAN, memPlaylists } = member;
+
+  const avatarUrl = require('../images/defaultTV.png')
 
   return (
     <div className="user-main">
