@@ -12,11 +12,8 @@ const defaultProps = {
 };
 
 const propTypes = {
-  fetchMusicianIfNeeded: PropTypes.func.isRequired,
-  followings: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  id: PropTypes.string.isRequired,
+  fetchBXHIfNeeded: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  isFollowing: PropTypes.bool.isRequired,
   likes: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,
   navigateTo: PropTypes.func.isRequired,
@@ -24,7 +21,7 @@ const propTypes = {
   playingSongId: PropTypes.number,
   playlist: PropTypes.string.isRequired,
   playSong: PropTypes.func.isRequired,
-  profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  // profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   shouldFetchUser: PropTypes.bool.isRequired,
   sidebarHeight: PropTypes.number.isRequired,
   sticky: PropTypes.bool.isRequired,
@@ -34,24 +31,25 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-class Album extends Component {
+class BXH extends Component {
   componentWillMount() {
-    const { fetchAlbumIfNeeded, id, playlist, shouldFetchUser } = this.props;
-    fetchAlbumIfNeeded(shouldFetchUser, id, playlist);
+    const { fetchBXHIfNeeded, shouldFetchUser,playlist} = this.props;
+    fetchBXHIfNeeded(shouldFetchUser,playlist);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchAlbumIfNeeded, id } = this.props;
-    if (nextProps.id !== id) {
-      fetchAlbumIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
-    }
+    const { fetchBXHIfNeeded,shouldFetchUser } = this.props;
+    // if (nextProps.id !== id) {
+      // fetchBXHIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
+    // }
+    // fetchBXHIfNeeded(shouldFetchUser);
   }
 
   render() {
     const {
-      followings,
+      // followings,
       isAuthenticated,
-      isFollowing,
+      // isFollowing,
       likes,
       login,
       navigateTo,
@@ -59,7 +57,7 @@ class Album extends Component {
       playlist,
       playingSongId,
       playSong,
-      profiles,
+      // profiles,
       shouldFetchUser,
       sidebarHeight,
       sticky,
@@ -68,7 +66,7 @@ class Album extends Component {
       toggleLike,
       album,
     } = this.props;
-    if (shouldFetchUser) {
+    if (!songs.length || !songs) {
       return <Loader className="loader--full" isLoading />;
     }
 
@@ -83,6 +81,8 @@ class Album extends Component {
               album={album}
               navigateTo={navigateTo}
             /> */}
+            Real-time nhạc tuần này
+            
             {!songs.length || !songs ? null :
               <div>
                 <SongList
@@ -107,7 +107,7 @@ class Album extends Component {
   }
 }
 
-Album.defaultProps = defaultProps;
-Album.propTypes = propTypes;
+BXH.defaultProps = defaultProps;
+BXH.propTypes = propTypes;
 
-export default stickyOnScroll(Album, 50);
+export default stickyOnScroll(BXH, 50);

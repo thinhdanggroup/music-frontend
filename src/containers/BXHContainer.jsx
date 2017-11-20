@@ -1,47 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import Song from '../components/Song';
-
-import fetchSongIfNeeded from '../actions/SongActions';
+import BXH from '../components/BXH';
 // import { playSong } from '../actions/PlayerActions';
 import { navigateTo } from '../actions/RouterActions';
-// import { login, toggleLike } from '../actions/SessionActions';
+// import { login, toggleFollow, toggleLike } from '../actions/SessionActions';
 import toggleLike  from '../actions/RatingActions';
+import fetchBXHIfNeeded from '../actions/BXHActions';
 import { getId, getIsAuthenticated, getLikes, getPlayingSongId, getSidebarHeight } from '../selectors/CommonSelectors';
-import { getComments, getPlaylist, getSong, getSongs, getTimed } from '../selectors/SongSelectors';
-import { postComment } from '../actions/CommentActions'
+import { getPlaylist, getShouldFetchUser, getSongs, getAlbum } from '../selectors/AlbumSelectors';
 
-const SongContainer = props => <Song {...props} />;
+const BXHContainer = props => <BXH {...props} />;
 
 const mapStateToProps = (state) => {
-  const { player, playlists } = state;
+  const { player } = state;
 
   return {
-    comments: getComments(state),
     id: getId(state),
     isAuthenticated: getIsAuthenticated(state),
     likes: getLikes(state),
     player,
     playingSongId: getPlayingSongId(state),
     playlist: getPlaylist(state),
-    playlists,
     sidebarHeight: getSidebarHeight(state),
-    song: getSong(state),
+    shouldFetchUser: getShouldFetchUser(state),
     songs: getSongs(state),
-    timed: getTimed(state),
+    album: getAlbum(state)
   };
 };
 
-const login = () => { }
 const playSong = () => { }
+const login = () => { }
+const toggleFollow = () => { }
 // const toggleLike = () => { }
 
 export default connect(mapStateToProps, {
-  fetchSongIfNeeded,
+  fetchBXHIfNeeded,
   login,
+  toggleFollow,
+  toggleLike,
   navigateTo,
   playSong,
-  toggleLike,
-  postComment
-})(SongContainer);
+})(BXHContainer);

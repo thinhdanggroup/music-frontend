@@ -6,6 +6,7 @@ const initialState = {
   songs: {},
   users: {},
   musicians: {},
+  members: {},
   albums: {},
   memPlaylists: {},
 };

@@ -4,7 +4,7 @@ import ArtworkPlay from '../components/ArtworkPlay';
 import Link from '../components/Link';
 import Stats from '../components/Stats';
 import Waveform from '../components/Waveform';
-import { SONG_PATH, USER_PATH } from '../constants/RouterConstants';
+import { MEMBER_PLAYLIST_PATH } from '../constants/RouterConstants';
 import IMAGE_SIZES from '../constants/ImageConstants';
 import getImageUrl from '../utils/ImageUtils';
 
@@ -22,7 +22,7 @@ const propTypes = {
   toggleLike: PropTypes.func.isRequired,
 };
 
-const SongListItem = ({
+const PlaylistListItem = ({
   index,
   isActive,
   isAuthenticated,
@@ -33,10 +33,12 @@ const SongListItem = ({
   playlist,
   playSong,
   song,
+  key,
+  memberEmail,
   toggleLike,
 }) => {
   const { isPlaying } = player;
-  const { artworkUrl, commentCount, ratingCount, id, playbackCount, name, user } = song;
+  const { artworkUrl, TEN, THOIDIEMTAO, THOIDIEMCAPNHAT } = song;
   // const { avatarUrl, username } = user;
 
   return (
@@ -58,41 +60,28 @@ const SongListItem = ({
         </div>
       </div>
       <div className="song-list__item__main">
-        <Link
+        {/* <Link
           className="song-list__item__title"
           navigateTo={navigateTo}
-          keys={{ id }}
-          path={SONG_PATH}
+          keys={TEN}
+          path={MEMBER_PLAYLIST_PATH + '/' + memberEmail}
         >
-          {name}
-        </Link>
+          {TEN}
+        </Link> */}
         <div className="song-list__item__meta">
-          {/* <div className="song-list__item__user">
-            <div
-              className="song-list__item__user__avatar"
-              style={{ backgroundImage: `url(${getImageUrl(avatarUrl)})` }}
-            />
-            <Link
-              className="song-list__item__user__username"
-              navigateTo={navigateTo}
-              keys={{ id: user.id }}
-              path={USER_PATH}
-            >
-              {username}
-            </Link>
-          </div> */}
-          <Stats
-            className="song-list__item__stats"
-            commentCount={commentCount}
-            ratingCount={ratingCount}
-            id={id}
-            isAuthenticated={isAuthenticated}
-            liked={liked}
-            login={login}
-            playbackCount={playbackCount}
-            toggleLike={toggleLike}
-            song = {song}
-          />
+          <div style={{ fontSize: 9 }}>
+            {`Name: ${TEN}`}
+          </div>
+        </div>
+        <div className="song-list__item__meta">
+          <div style={{ fontSize: 9 }}>
+            {`Created Date: ${THOIDIEMTAO}`}
+          </div>
+        </div>
+        <div className="song-list__item__meta">
+          <div style={{ fontSize: 9 }}>
+            {`Modified Date: ${THOIDIEMCAPNHAT}`}
+          </div>
         </div>
       </div>
       <Waveform
@@ -108,6 +97,6 @@ const SongListItem = ({
   );
 };
 
-SongListItem.propTypes = propTypes;
+PlaylistListItem.propTypes = propTypes;
 
-export default SongListItem;
+export default PlaylistListItem;

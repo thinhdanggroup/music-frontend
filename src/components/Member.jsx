@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import SongList from '../components/SongList';
+import PlaylistList from '../components/PlaylistList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
-import AlbumMain from '../components/AlbumMain';
+import MemberMain from '../components/MemberMain';
 
 const defaultProps = {
   playingSongId: null,
@@ -34,21 +34,22 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-class Album extends Component {
+class Member extends Component {
   componentWillMount() {
-    const { fetchAlbumIfNeeded, id, playlist, shouldFetchUser } = this.props;
-    fetchAlbumIfNeeded(shouldFetchUser, id, playlist);
+    const { fetchMemberIfNeeded, id, shouldFetchMember } = this.props;
+    fetchMemberIfNeeded(shouldFetchMember, id);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { fetchAlbumIfNeeded, id } = this.props;
+    const { fetchMemberIfNeeded, id } = this.props;
     if (nextProps.id !== id) {
-      fetchAlbumIfNeeded(nextProps.shouldFetchUser, nextProps.id, nextProps.playlist);
+      fetchMemberIfNeeded(nextProps.shouldFetchMember, nextProps.id);
     }
   }
 
   render() {
     const {
+      id,
       followings,
       isAuthenticated,
       isFollowing,
@@ -60,32 +61,34 @@ class Album extends Component {
       playingSongId,
       playSong,
       profiles,
-      shouldFetchUser,
+      shouldFetchMember,
       sidebarHeight,
       sticky,
-      songs,
       toggleFollow,
       toggleLike,
-      album,
+      member,
     } = this.props;
-    if (shouldFetchUser) {
+    if (shouldFetchMember) {
       return <Loader className="loader--full" isLoading />;
     }
+
+    const memPlaylists = member.memPlaylists
+    memPlaylists.email = id
 
     return (
       <div className="container">
         <div className="user content">
           <div className="user__main">
-            {/* <AlbumMain
+            <MemberMain
               isFollowing={isFollowing}
               profiles={profiles}
               toggleFollow={toggleFollow}
-              album={album}
+              member={member}
               navigateTo={navigateTo}
-            /> */}
-            {!songs.length || !songs ? null :
+            />
+            {!memPlaylists.length || !memPlaylists ? null :
               <div>
-                <SongList
+                <PlaylistList
                   className="user__song-list"
                   isAuthenticated={isAuthenticated}
                   likes={likes}
@@ -95,7 +98,7 @@ class Album extends Component {
                   playingSongId={playingSongId}
                   playlist={playlist}
                   playSong={playSong}
-                  songs={songs}
+                  songs={memPlaylists}
                   toggleLike={toggleLike}
                 />
               </div>
@@ -107,7 +110,7 @@ class Album extends Component {
   }
 }
 
-Album.defaultProps = defaultProps;
-Album.propTypes = propTypes;
+Member.defaultProps = defaultProps;
+Member.propTypes = propTypes;
 
-export default stickyOnScroll(Album, 50);
+export default stickyOnScroll(Member, 50);
