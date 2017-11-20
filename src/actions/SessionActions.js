@@ -203,19 +203,37 @@ export const toggleLikeSuccess = (id, liked) => ({
   id,
   liked,
 });
+const RatingBHSuccess = (id, ratingCount) => ({
+  type: types.FETCH_SONG_COMMENTS_SUCCESS,
+  entities: {
+    songs: {
+      [id]: { ratingCount },
+    },
+  },
+});
+const RatingBHrequest = (email,id, ratingCount) => async (dispatch) => {
+  let { json } = await callApi(`SELECT rateBaiHat('${email}','${id}','${ratingCount}');`);
+  json = json.data.ratebaihat;
+  console.log(json);
+  dispatch(RatingBHSuccess(id,ratingCount));
+  // const normSongs = normalize(json.baiHats, [songSchema]);
 
-export const toggleLike = (id, liked) => async (dispatch, getState) => {
-  dispatch(toggleLikeRequest(id, liked));
-
-  const oauthToken = getOauthToken(getState());
-  const { error } = await callApi(
-    `${TOGGLE_LIKE_URL.replace(':id', id)}?oauth_token=${oauthToken}`,
-    { method: liked ? 'PUT' : 'DELETE' },
-  );
-
-  if (error) {
-    return dispatch(toggleLikeError(id, !liked));
-  }
-
-  return dispatch(toggleLikeSuccess(id, liked));
+  // dispatch(fetchSongsSuccess(playlist,normSongs.result, normSongs.entities, null, null));
 };
+
+const toggleLike = (email, id, ratingCount) => (dispatch) => {
+  dispatch(RatingBHrequest(email,id, ratingCount));
+  // rateBaiHat
+  // const oauthToken = getOauthToken(getState());
+  // const { error } = await callApi(
+  //   `${TOGGLE_LIKE_URL.replace(':id', id)}?oauth_token=${oauthToken}`,
+  //   { method: liked ? 'PUT' : 'DELETE' },
+  // );
+
+  // if (error) {
+  //   return dispatch(toggleLikeError(id, !liked));
+  // }
+
+  // return dispatch(toggleLikeSuccess(id, liked));
+};
+export default toggleLike;

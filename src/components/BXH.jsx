@@ -5,7 +5,7 @@ import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
 import AlbumMain from '../components/AlbumMain';
-
+import StarRatingComponent from 'react-star-rating-component';
 const defaultProps = {
   playingSongId: null,
   user: null,
@@ -33,6 +33,34 @@ const propTypes = {
   toggleLike: PropTypes.func.isRequired,
   user: PropTypes.shape({}),
 };
+class Rating extends React.Component {
+  constructor() {
+      super();
+
+      this.state = {
+          rating: 1
+      };
+  }
+
+  onStarClick(nextValue, prevValue, name) {
+      this.setState({rating: nextValue});
+  }
+
+  render() {
+      const { rating } = this.state;
+      return (                
+          <div>
+              <h2>Rating from state: {rating}</h2>
+              <StarRatingComponent 
+                  name="rate1" 
+                  starCount={5}
+                  value={rating}
+                  onStarClick={this.onStarClick.bind(this)}
+              />
+          </div>
+      );
+  }
+}
 
 class BXH extends Component {
   componentWillMount() {
@@ -84,6 +112,8 @@ class BXH extends Component {
               album={album}
               navigateTo={navigateTo}
             /> */}
+            Real-time nhạc tuần này
+            
             {!songs.length || !songs ? null :
               <div>
                 <SongList

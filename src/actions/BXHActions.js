@@ -18,12 +18,12 @@ const fetchBXH = (playlist) => async (dispatch) => {
   //     songs: {
   //       [id]: json
   //     },
+  // // }));
+  // dispatch(fetchBXHSuccess({
+  //   albums: {
+  //     1111111 : json
+  //   }
   // }));
-  dispatch(fetchBXHSuccess({
-    albums: {
-      1111111 : json
-    }
-  }));
 
   const normSongs = normalize(json.baiHats, [songSchema]);
 
