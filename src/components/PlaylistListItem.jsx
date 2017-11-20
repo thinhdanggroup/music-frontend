@@ -60,19 +60,17 @@ const PlaylistListItem = ({
         </div>
       </div>
       <div className="song-list__item__main">
-        {/* <Link
+        <Link
           className="song-list__item__title"
           navigateTo={navigateTo}
-          keys={TEN}
-          path={MEMBER_PLAYLIST_PATH + '/' + memberEmail}
+          keys={{
+            playlistName: song.TEN,
+            email: memberEmail,
+          }}
+          path={MEMBER_PLAYLIST_PATH}
         >
           {TEN}
-        </Link> */}
-        <div className="song-list__item__meta">
-          <div style={{ fontSize: 9 }}>
-            {`Name: ${TEN}`}
-          </div>
-        </div>
+        </Link>
         <div className="song-list__item__meta">
           <div style={{ fontSize: 9 }}>
             {`Created Date: ${THOIDIEMTAO}`}
@@ -93,7 +91,7 @@ const PlaylistListItem = ({
         playSong={playSong}
         song={song}
       />
-    </div>
+    </div >
   );
 };
 

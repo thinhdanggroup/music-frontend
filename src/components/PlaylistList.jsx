@@ -37,16 +37,16 @@ const PlaylistList = ({
   playingSongId,
   playlist,
   playSong,
-  songs,
+  memPlaylists,
   toggleLike,
 }) => (
     <div className={`song-list ${className}`}>
-      {songs.map((song, i) => (
+      {memPlaylists.map((song, i) => (
         <PlaylistListItem
           index={i + offsetIndex}
           // isActive={playingSongId === song.id}
           isAuthenticated={isAuthenticated}
-          memberEmail={songs.email}
+          memberEmail={memPlaylists.email}
           // liked={Boolean(song.id in likes && likes[song.id])}
           login={login}
           navigateTo={navigateTo}

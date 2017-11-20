@@ -98,7 +98,7 @@ class Member extends Component {
                   playingSongId={playingSongId}
                   playlist={playlist}
                   playSong={playSong}
-                  songs={memPlaylists}
+                  memPlaylists={memPlaylists}
                   toggleLike={toggleLike}
                 />
               </div>
