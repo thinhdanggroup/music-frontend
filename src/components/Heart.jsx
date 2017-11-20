@@ -12,7 +12,7 @@ const defaultProps = {
 const propTypes = {
   className: PropTypes.string,
   ratingCount: PropTypes.number,
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   liked: PropTypes.bool.isRequired,
   login: PropTypes.func.isRequired,

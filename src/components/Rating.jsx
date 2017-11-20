@@ -12,7 +12,7 @@ const defaultProps = {
 const propTypes = {
   className: PropTypes.string,
   ratingCount: PropTypes.number,
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   liked: PropTypes.bool.isRequired,
   login: PropTypes.func.isRequired,
@@ -22,13 +22,14 @@ class Rating extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.song.avgRate,
+      value: 0,
       idBaiHat: this.props.id,
       email: 'Garen@gmail.com',
     };
     this.onClick = this.onClick.bind(this);
     
   }
+  
   onClick(nextValue, prevValue, name) {
     const { id, liked, toggleLike } = this.props;
     this.setState({

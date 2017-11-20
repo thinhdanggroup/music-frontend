@@ -21,17 +21,5 @@ const RatingBHrequest = (email,id, rate) => async (dispatch) => {
 
 const toggleLike = (email, id, rate) => (dispatch) => {
   dispatch(RatingBHrequest(email,id, rate));
-  // rateBaiHat
-  // const oauthToken = getOauthToken(getState());
-  // const { error } = await callApi(
-  //   `${TOGGLE_LIKE_URL.replace(':id', id)}?oauth_token=${oauthToken}`,
-  //   { method: liked ? 'PUT' : 'DELETE' },
-  // );
-
-  // if (error) {
-  //   return dispatch(toggleLikeError(id, !liked));
-  // }
-
-  // return dispatch(toggleLikeSuccess(id, liked));
 };
 export default toggleLike;

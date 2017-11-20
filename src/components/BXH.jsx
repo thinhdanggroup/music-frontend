@@ -5,18 +5,15 @@ import SongList from '../components/SongList';
 import Loader from '../components/Loader';
 import stickyOnScroll from '../components/stickyOnScroll';
 import AlbumMain from '../components/AlbumMain';
-import StarRatingComponent from 'react-star-rating-component';
+
 const defaultProps = {
   playingSongId: null,
   user: null,
 };
 
 const propTypes = {
-  fetchMusicianIfNeeded: PropTypes.func.isRequired,
-  followings: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  id: PropTypes.string.isRequired,
+  fetchBXHIfNeeded: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  isFollowing: PropTypes.bool.isRequired,
   likes: PropTypes.shape({}).isRequired,
   login: PropTypes.func.isRequired,
   navigateTo: PropTypes.func.isRequired,
@@ -24,7 +21,7 @@ const propTypes = {
   playingSongId: PropTypes.number,
   playlist: PropTypes.string.isRequired,
   playSong: PropTypes.func.isRequired,
-  profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  // profiles: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   shouldFetchUser: PropTypes.bool.isRequired,
   sidebarHeight: PropTypes.number.isRequired,
   sticky: PropTypes.bool.isRequired,
@@ -33,34 +30,6 @@ const propTypes = {
   toggleLike: PropTypes.func.isRequired,
   user: PropTypes.shape({}),
 };
-class Rating extends React.Component {
-  constructor() {
-      super();
-
-      this.state = {
-          rating: 1
-      };
-  }
-
-  onStarClick(nextValue, prevValue, name) {
-      this.setState({rating: nextValue});
-  }
-
-  render() {
-      const { rating } = this.state;
-      return (                
-          <div>
-              <h2>Rating from state: {rating}</h2>
-              <StarRatingComponent 
-                  name="rate1" 
-                  starCount={5}
-                  value={rating}
-                  onStarClick={this.onStarClick.bind(this)}
-              />
-          </div>
-      );
-  }
-}
 
 class BXH extends Component {
   componentWillMount() {
@@ -78,9 +47,9 @@ class BXH extends Component {
 
   render() {
     const {
-      followings,
+      // followings,
       isAuthenticated,
-      isFollowing,
+      // isFollowing,
       likes,
       login,
       navigateTo,
@@ -88,7 +57,7 @@ class BXH extends Component {
       playlist,
       playingSongId,
       playSong,
-      profiles,
+      // profiles,
       shouldFetchUser,
       sidebarHeight,
       sticky,
@@ -97,9 +66,9 @@ class BXH extends Component {
       toggleLike,
       album,
     } = this.props;
-    // if (shouldFetchUser) {
-    //   return <Loader className="loader--full" isLoading />;
-    // }
+    if (!songs.length || !songs) {
+      return <Loader className="loader--full" isLoading />;
+    }
 
     return (
       <div className="container">

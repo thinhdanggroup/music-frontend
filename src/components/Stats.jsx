@@ -12,13 +12,13 @@ const propTypes = {
   className: PropTypes.string,
   commentCount: PropTypes.number.isRequired,
   ratingCount: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   liked: PropTypes.bool.isRequired,
   login: PropTypes.func.isRequired,
   playbackCount: PropTypes.number.isRequired,
   toggleLike: PropTypes.func.isRequired,
-  songs: PropTypes.number.isRequired,
+  // songs: PropTypes.number.isRequired,
 };
 
 const Stats = ({
@@ -66,7 +66,7 @@ const Stats = ({
         toggleLike={toggleLike}
         song = {song}
       />
-    </div>
+    </div>  
   );
 
 Stats.defaultProps = defaultProps;
