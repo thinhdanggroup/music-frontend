@@ -42,6 +42,7 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, 
           comment={comment}
           key={comment.id}
           index={i}
+          navigateTo={navigateTo}
         />
       ))}
     </SidebarBody>
