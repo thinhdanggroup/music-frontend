@@ -45,7 +45,7 @@ const SongMain = ({
     ngheSiTDs,
     albums,
     genres,
-    title,
+    name,
   } = song;
   // const { avatarUrl, username } = user;
 
@@ -73,7 +73,7 @@ const SongMain = ({
       </div>
       <div className="song-main__main">
         <div className="song-main__title">
-          {title}
+          {name}
         </div>
         <RelatedInfo
           title={'Album\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
