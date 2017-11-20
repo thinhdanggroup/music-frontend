@@ -9,6 +9,7 @@ import SongContainer from '../containers/SongContainer';
 // import SongsContainer from '../containers/SongsContainer';
 import MusicianContainer from '../containers/MusicianContainer';
 import AlbumContainer from '../containers/AlbumContainer';
+import MemberContainer from '../containers/MemberContainer'
 import MemberPlaylistContainer from '../containers/MemberPlaylistContainer';
 import BXHContainer from '../containers/BXHContainer';
 import {
@@ -19,6 +20,7 @@ import {
   USER_PATH,
   MUSICIAN_PATH,
   ALBUM_PATH,
+  MEM_PATH,
   MEMBER_PLAYLIST_PATH,
   BXH_PATH,
 } from '../constants/RouterConstants';
@@ -37,6 +39,7 @@ const mapStateToProps = (state) => {
       USER_PATH,
       MUSICIAN_PATH,
       ALBUM_PATH,
+      MEM_PATH,
       MEMBER_PLAYLIST_PATH,
       BXH_PATH,
     ],
@@ -49,8 +52,9 @@ const mapStateToProps = (state) => {
       // [USER_PATH]: UserContainer,
       [MUSICIAN_PATH]: MusicianContainer,
       [ALBUM_PATH]: AlbumContainer,
+      [MEM_PATH]: MemberContainer,
       [MEMBER_PLAYLIST_PATH]: MemberPlaylistContainer,
-      [BXH_PATH] : BXHContainer,
+      [BXH_PATH]: BXHContainer,
     },
   };
 };
