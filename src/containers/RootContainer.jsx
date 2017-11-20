@@ -11,7 +11,10 @@ import MusicianContainer from '../containers/MusicianContainer';
 import AlbumContainer from '../containers/AlbumContainer';
 import MemberPlaylistContainer from '../containers/MemberPlaylistContainer';
 import BXHContainer from '../containers/BXHContainer';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03616af847cc54582e70babab35ccc2716161ffe
 import {
   INDEX_PATH,
   PLAYLIST_PATH,
@@ -21,7 +24,11 @@ import {
   MUSICIAN_PATH,
   ALBUM_PATH,
   MEMBER_PLAYLIST_PATH,
+<<<<<<< HEAD
   BXH_PATH
+=======
+  BXH_PATH,
+>>>>>>> 03616af847cc54582e70babab35ccc2716161ffe
 } from '../constants/RouterConstants';
 
 const RootContainer = props => <Root {...props} />;
@@ -39,7 +46,11 @@ const mapStateToProps = (state) => {
       MUSICIAN_PATH,
       ALBUM_PATH,
       MEMBER_PLAYLIST_PATH,
+<<<<<<< HEAD
       BXH_PATH
+=======
+      BXH_PATH,
+>>>>>>> 03616af847cc54582e70babab35ccc2716161ffe
     ],
     router,
     routes: {
@@ -51,7 +62,11 @@ const mapStateToProps = (state) => {
       [MUSICIAN_PATH]: MusicianContainer,
       [ALBUM_PATH]: AlbumContainer,
       [MEMBER_PLAYLIST_PATH]: MemberPlaylistContainer,
+<<<<<<< HEAD
       [BXH_PATH] : BXHContainer
+=======
+      [BXH_PATH] : BXHContainer,
+>>>>>>> 03616af847cc54582e70babab35ccc2716161ffe
     },
   };
 };
