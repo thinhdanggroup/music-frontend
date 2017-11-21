@@ -21,7 +21,7 @@ const NavUser = ({ isAuthenticated, login, logout, user, navigateTo }) => {
   if (isAuthenticated) {
     // const { avatarUrl } = user;
     const avatarUrl = require('../images/defaultTV.png')
-
+    console.log(user);
     return (
       <Popover className="nav-user popover--right">
         <div className="nav-user__trigger">

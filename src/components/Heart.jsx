@@ -90,9 +90,9 @@ class Heart extends Component {
       <div className={`heart ${liked ? 'heart--liked' : ''} ${className} `}>
         <div
           className="heart__inner"
-          onClick={this.onClick}
-          role="button"
-          tabIndex="0"
+          // onClick={this.onClick}
+          // role="button"
+          // tabIndex="0"
         >
           <i className="heart__icon ion-ios-star" />
           <HeartCount ratingCount={song.avgRate} />
