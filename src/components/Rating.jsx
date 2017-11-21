@@ -29,12 +29,13 @@ class Rating extends Component {
   // }
   initRateBH(res) {
     console.log(res)
-    if (res.data.data.getrateuser.soSao != null && this.state.cond == 1) {
-      this.setState({
-        value: res.data.data.getrateuser.soSao,
-        cond: 0
-      })
-    }
+    if (res.data.data.getrateuser != undefined || res.data.data.getrateuser )
+      if (res.data.data.getrateuser.soSao!= null && this.state.cond == 1) {
+        this.setState({
+          value: res.data.data.getrateuser.soSao,
+          cond: 0
+        })
+      } 
   }
 
   componentDidUpdate() {
