@@ -19,12 +19,7 @@ class Rating extends Component {
     this.onClick = this.onClick.bind(this);
     this.initRateBH = this.initRateBH.bind(this);
   }
-  // componentDidMount() {
-  //   const {fetchRateBH,id,user,isAuthenticated} = this.props;
-  //   if (isAuthenticated){
-  //   fetchRateBH(id,user);
-  //   // }
-  // }
+
   initRateBH(res) {
     console.log(res)
     if (res.data.data.getrateuser.soSao != null) {
