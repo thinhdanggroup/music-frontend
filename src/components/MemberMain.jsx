@@ -32,19 +32,15 @@ const MemberMain = ({ navigateTo, member }) => {
         </div>
         <Info
           title={'Ten\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
-          navigateTo={navigateTo}
           content={[{
             name: HO + ' ' + TENLOT + ' ' + TEN
           }]}
-          path={MEM_PATH}
         />
         <Info
           title={'Tai khoan\xa0\xa0\xa0\xa0\xa0\xa0'}
-          navigateTo={navigateTo}
           content={[{
             name: TAIKHOAN
           }]}
-          path={MEM_PATH}
         />
       </div>
     </div>

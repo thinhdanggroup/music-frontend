@@ -11,9 +11,7 @@ const defaultProps = {
 const propTypes = {
   title: PropTypes.shape({}).isRequired,
   content: PropTypes.number.isRequired,
-  path: PropTypes.string.isRequired,
   style: PropTypes.shape({}),
-  navigateTo: PropTypes.func.isRequired,
 };
 
 class Info extends Component {
@@ -22,7 +20,7 @@ class Info extends Component {
   }
 
   render() {
-    const { title, content, path, style, navigateTo } = this.props
+    const { title, content, style } = this.props
     return (
       <div className="song-main__user" >
         <div style={style}>
