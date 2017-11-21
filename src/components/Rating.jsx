@@ -38,7 +38,10 @@ class Rating extends Component {
   componentDidUpdate() {
     const { id, user, isAuthenticated } = this.props;
     if (isAuthenticated && !this.state.fetchedComment) {
-      fetchRateBH(id, user, this.initRateBH);
+      fetchRateBH(
+        id = id,
+        email = user,
+        then = this.initRateBH);
     }
   }
 
