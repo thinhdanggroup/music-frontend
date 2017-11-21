@@ -21,8 +21,7 @@ class Rating extends Component {
   }
 
   initRateBH(res) {
-    console.log(res)
-    if (res.data.data.getrateuser.soSao != null) {
+    if (res.data.data.getrateuser != null) {
       this.setState({
         value: res.data.data.getrateuser.soSao,
         fetchedComment: true
