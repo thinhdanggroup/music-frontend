@@ -14,9 +14,7 @@ class Rating extends Component {
     super(props);
     this.state = {
       value: 0,
-      idBaiHat: this.props.id,
-      email: this.props.user,
-      cond: 1
+      fetchedComment: false
     };
     this.onClick = this.onClick.bind(this);
     this.initRateBH = this.initRateBH.bind(this);
@@ -29,27 +27,33 @@ class Rating extends Component {
   // }
   initRateBH(res) {
     console.log(res)
-    if (res.data.data.getrateuser.soSao != null && this.state.cond == 1) {
+    if (res.data.data.getrateuser.soSao != null) {
       this.setState({
         value: res.data.data.getrateuser.soSao,
-        cond: 0
+        fetchedComment: true
       })
     }
   }
 
   componentDidUpdate() {
     const { id, user, isAuthenticated } = this.props;
-    if (isAuthenticated) {
+    if (isAuthenticated && !this.state.fetchedComment) {
       fetchRateBH(id, user, this.initRateBH);
     }
   }
 
   onClick(nextValue, prevValue, name) {
-    const { id, rateSong } = this.props;
+    const { id, rateSong, user } = this.props;
+
     this.setState({
       value: nextValue
     })
-    rateSong(this.state.email, id, nextValue);
+
+    rateSong(
+      email = user,
+      id = id,
+      rate = nextValue
+    );
   }
 
   render() {
