@@ -21,7 +21,6 @@ const SongComment = ({ comment, index, navigateTo }) => {
     <div className="song-comment" style={{ animationDelay: `${index * 50}ms` }}>
       <div
         className="song-comment__image"
-        // TODO
         style={{ backgroundImage: `url(${getImageUrl(avatarUrl, IMAGE_SIZES.LARGE)})` }}
       />
       <div className="song-comment__main">

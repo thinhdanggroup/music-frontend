@@ -37,7 +37,7 @@ export const rateSong = (email, id, rate) => (dispatch) => {
 // export const fetchRateBH= (id,email) => (dispatch) => {
 //   dispatch(fetchRateBHrequest(id,email));
 // }
-export function fetchRateBH(id,email, then) {
+export function fetchRateBH(id, email, then) {
   axios({
     method: 'post',
     url: `${backendInfo.url}/query-db`,

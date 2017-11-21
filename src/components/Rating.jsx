@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import { fetchRateBH} from '../actions/RatingActions';
+import { fetchRateBH } from '../actions/RatingActions';
 const defaultProps = {
 };
 
@@ -13,10 +13,10 @@ class Rating extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        value: 0,
-        idBaiHat: this.props.id,
-        email: this.props.user,
-        cond: 1
+      value: 0,
+      idBaiHat: this.props.id,
+      email: this.props.user,
+      cond: 1
     };
     this.onClick = this.onClick.bind(this);
     this.initRateBH = this.initRateBH.bind(this);
@@ -28,32 +28,22 @@ class Rating extends Component {
   //   // }
   // }
   initRateBH(res) {
-    
+    console.log(res)
     if (res.data.data.getrateuser.soSao != null && this.state.cond == 1) {
-        this.setState({
-          value: res.data.data.getrateuser.soSao,
-          cond: 0
-        })
+      this.setState({
+        value: res.data.data.getrateuser.soSao,
+        cond: 0
+      })
     }
-    // console.log(res.data.data.getrateuser.soSao)
-    // this.setState({
-    //   value: this
-    // })
   }
-  // componentWillMount() {
-  //   const {fetchRateBH,id,user,isAuthenticated} = this.props;
-  //   if (isAuthenticated){
-  //     fetchRateBH(id,user,);
-  //   }
-  // }
+
   componentDidUpdate() {
-    const {id,user,isAuthenticated} = this.props;
-    if (isAuthenticated){
-      console.log(user);
-      fetchRateBH(id,user,this.initRateBH);
+    const { id, user, isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      fetchRateBH(id, user, this.initRateBH);
     }
-    console.log(user);
   }
+
   onClick(nextValue, prevValue, name) {
     const { id, rateSong } = this.props;
     this.setState({
@@ -63,9 +53,8 @@ class Rating extends Component {
   }
 
   render() {
-    const { id,entities ,songs,user} = this.props;
-    // console.log(entities);
-    // console.log(user);
+    const { id, entities, songs, user } = this.props;
+
     return (
       <div className="stats__stat">
         <StarRatingComponent
