@@ -47,7 +47,10 @@ class Rating extends Component {
   }
 
   render() {
-    const { id, entities, songs, user } = this.props;
+    const { id, isAuthenticated } = this.props;
+    if (!isAuthenticated) {
+      return null
+    }
 
     return (
       <div className="stats__stat">
