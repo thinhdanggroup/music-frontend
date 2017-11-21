@@ -7,6 +7,7 @@ const defaultProps = {
 const propTypes = {
   id: PropTypes.string.isRequired,
   postComment: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 class CommentForm extends React.Component {
@@ -51,6 +52,11 @@ class CommentForm extends React.Component {
   }
 
   render() {
+    const { isAuthenticated } = this.props
+    if (!isAuthenticated) {
+      return null
+    }
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
