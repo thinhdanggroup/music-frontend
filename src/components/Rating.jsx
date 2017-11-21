@@ -38,10 +38,7 @@ class Rating extends Component {
   componentDidUpdate() {
     const { id, user, isAuthenticated } = this.props;
     if (isAuthenticated && !this.state.fetchedComment) {
-      fetchRateBH(
-        id = id,
-        email = user,
-        then = this.initRateBH);
+      fetchRateBH(id, user, this.initRateBH);
     }
   }
 
@@ -52,11 +49,7 @@ class Rating extends Component {
       value: nextValue
     })
 
-    rateSong(
-      email = user,
-      id = id,
-      rate = nextValue
-    );
+    rateSong(user, id, nextValue);
   }
 
   render() {
