@@ -110,6 +110,7 @@ class Song extends Component {
               timed={timed}
               postComment={this.props.postComment}
               user={this.props.user}
+              isAuthenticated={isAuthenticated}
             />
           </div>
         </div>

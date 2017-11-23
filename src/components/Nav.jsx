@@ -4,7 +4,7 @@ import Link from '../components/Link';
 // import NavSearch from '../components/NavSearch';
 // import NavSession from '../components/NavSession';
 import NavUser from '../components/NavUser';
-import { SONGS_PATH } from '../constants/RouterConstants';
+import { SONGS_PATH, BXH_PATH } from '../constants/RouterConstants';
 
 const defaultProps = {
   navPlaylist: null,
@@ -51,7 +51,7 @@ const Nav = ({
           <Link
             className="nav__logo__text"
             navigateTo={navigateTo}
-            path={SONGS_PATH}
+            path={BXH_PATH}
           >
             MusicEnjoyment
         </Link>

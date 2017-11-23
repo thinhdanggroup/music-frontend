@@ -14,8 +14,10 @@ const propTypes = {
 };
 
 const MusicianMain = ({ isFollowing, profiles, toggleFollow, musician }) => {
-  const { avatarUrl, description, followersCount, name, birthdate } = musician;
+  const { description, followersCount, name, birthdate } = musician;
   // TODO
+  const avatarUrl = require('../images/defaultNS.png')
+
   return (
     <div className="user-main">
       <div className="user-main__avatar">

@@ -8,10 +8,6 @@ const propTypes = {
   logout: PropTypes.func.isRequired,
 };
 
-const navigateToPersonalPage = (navigateTo, ) => {
-
-}
-
 const SessionPopoverPanel = ({ logout, navigateTo, user }) => (
   <div>
     <div

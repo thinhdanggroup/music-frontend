@@ -9,13 +9,18 @@ const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   id: PropTypes.number.isRequired,
   navigateTo: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   sidebarHeight: PropTypes.number.isRequired,
   sticky: PropTypes.bool.isRequired,
   timed: PropTypes.bool.isRequired,
   user: PropTypes.shape({}),
 };
 
+<<<<<<< HEAD
 const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, postComment, user }) => (
+=======
+const SongComments = ({ isAuthenticated, comments, id, navigateTo, sidebarHeight, sticky, timed, postComment }) => (
+>>>>>>> 4eae0ab60967f0bdf69b9190a927356bdea1270a
   <div
     className={`sidebar ${sticky ? 'sidebar--sticky' : ''}`}
     style={{ height: `${sidebarHeight}px` }}
@@ -36,7 +41,7 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, 
           />
         </div> */}
     </div>
-    <CommentForm id={id} postComment={postComment} user={user} />
+    <CommentForm id={id} postComment={postComment} user={user} isAuthenticated={isAuthenticated} />
     <SidebarBody>
       {comments.map((comment, i) => (
         <SongComment

@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 const MemberMain = ({ navigateTo, member }) => {
-  const { HO, TEN, TENLOT, TAIKHOAN, memPlaylists } = member;
+  const { HO, TEN, TENLOT, TAIKHOAN, memPlaylists, email } = member;
 
   const avatarUrl = require('../images/defaultTV.png')
 
@@ -27,24 +27,20 @@ const MemberMain = ({ navigateTo, member }) => {
       <div className="user-main__main">
         <div className="user-main__title">
           <div className="user-main__username">
-            {TAIKHOAN}
+            {email}
           </div>
         </div>
         <Info
           title={'Ten\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'}
-          navigateTo={navigateTo}
           content={[{
             name: HO + ' ' + TENLOT + ' ' + TEN
           }]}
-          path={MEM_PATH}
         />
         <Info
           title={'Tai khoan\xa0\xa0\xa0\xa0\xa0\xa0'}
-          navigateTo={navigateTo}
           content={[{
             name: TAIKHOAN
           }]}
-          path={MEM_PATH}
         />
       </div>
     </div>

@@ -2,13 +2,9 @@ import IMAGE_SIZES from '../constants/ImageConstants';
 import DEFAULT_IMAGE from '../images/defaultBH.png';
 
 const getImageUrl = (s, size = null) => {
-  if (!s || s ==="undefined") {
+  if (!s || s === "undefined") {
     s = DEFAULT_IMAGE;
   }
-  // TODO
-  // else {
-  // return path to default image
-  // }
 
   const url = s.replace('http:', '');
 

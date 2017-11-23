@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-
+import { fetchRateBH } from '../actions/RatingActions';
 const defaultProps = {
 };
 
 const propTypes = {
   id: PropTypes.string.isRequired,
-  rateSong: PropTypes.func.isRequired,
 };
 
 class Rating extends Component {
@@ -15,23 +14,43 @@ class Rating extends Component {
     super(props);
     this.state = {
       value: 0,
-      idBaiHat: this.props.id,
-      email: 'Garen@gmail.com',
+      fetchedComment: false
     };
     this.onClick = this.onClick.bind(this);
+    this.initRateBH = this.initRateBH.bind(this);
+  }
 
+  initRateBH(res) {
+    if (res.data.data.getrateuser != null) {
+      this.setState({
+        value: res.data.data.getrateuser.soSao,
+        fetchedComment: true
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    const { id, user, isAuthenticated } = this.props;
+    if (isAuthenticated && !this.state.fetchedComment) {
+      fetchRateBH(id, user, this.initRateBH);
+    }
   }
 
   onClick(nextValue, prevValue, name) {
-    const { id, rateSong } = this.props;
+    const { id, rateSong, user } = this.props;
+
     this.setState({
       value: nextValue
     })
-    rateSong(this.state.email, id, nextValue);
+
+    rateSong(user, id, nextValue);
   }
 
   render() {
-    const { id } = this.props;
+    const { id, isAuthenticated } = this.props;
+    if (!isAuthenticated) {
+      return null
+    }
 
     return (
       <div className="stats__stat">
