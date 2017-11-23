@@ -16,11 +16,7 @@ const propTypes = {
   user: PropTypes.shape({}),
 };
 
-<<<<<<< HEAD
-const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, postComment, user }) => (
-=======
-const SongComments = ({ isAuthenticated, comments, id, navigateTo, sidebarHeight, sticky, timed, postComment }) => (
->>>>>>> 4eae0ab60967f0bdf69b9190a927356bdea1270a
+const SongComments = ({ isAuthenticated, comments, id, navigateTo, sidebarHeight, sticky, timed, postComment, user }) => (
   <div
     className={`sidebar ${sticky ? 'sidebar--sticky' : ''}`}
     style={{ height: `${sidebarHeight}px` }}
