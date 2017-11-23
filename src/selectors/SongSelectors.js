@@ -39,6 +39,15 @@ export const getSongs = createSelector(
   ),
 );
 
+export const getUser = createSelector(
+  getId,
+  getEntities,
+  (id, entities) => (id in entities.users
+    ? denormalize(id, songSchema, entities)
+    : null
+  ),
+);
+
 export const getTimed = state => Boolean(state.router.route.options.timed) || false;
 export const getComments = createSelector(
   getIsActive,

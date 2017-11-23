@@ -63,6 +63,7 @@ class Song extends Component {
       sticky,
       timed,
       toggleLike,
+      user,
     } = this.props;
     if (!song || !comments) {
       return <Loader className="loader--full" isLoading />;
@@ -108,6 +109,7 @@ class Song extends Component {
               sticky={sticky}
               timed={timed}
               postComment={this.props.postComment}
+              user={this.props.user}
             />
           </div>
         </div>

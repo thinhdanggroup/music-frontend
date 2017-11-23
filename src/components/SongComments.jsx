@@ -12,9 +12,10 @@ const propTypes = {
   sidebarHeight: PropTypes.number.isRequired,
   sticky: PropTypes.bool.isRequired,
   timed: PropTypes.bool.isRequired,
+  user: PropTypes.shape({}),
 };
 
-const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, postComment }) => (
+const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, postComment, user }) => (
   <div
     className={`sidebar ${sticky ? 'sidebar--sticky' : ''}`}
     style={{ height: `${sidebarHeight}px` }}
@@ -35,7 +36,7 @@ const SongComments = ({ comments, id, navigateTo, sidebarHeight, sticky, timed, 
           />
         </div> */}
     </div>
-    <CommentForm id={id} postComment={postComment} />
+    <CommentForm id={id} postComment={postComment} user={user} />
     <SidebarBody>
       {comments.map((comment, i) => (
         <SongComment

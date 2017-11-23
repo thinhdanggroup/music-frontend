@@ -15,7 +15,7 @@ class CommentForm extends React.Component {
     this.state = {
       value: '',
       idBaiHat: this.props.id,
-      email: 'Garen@gmail.com',
+      email: this.props.user,
       comment: ''
     };
 
