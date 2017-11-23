@@ -8,6 +8,7 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   postComment: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  user: PropTypes.shape({}),
 };
 
 class CommentForm extends React.Component {
@@ -16,7 +17,6 @@ class CommentForm extends React.Component {
     this.state = {
       value: '',
       idBaiHat: this.props.id,
-      email: this.props.user,
       comment: ''
     };
 
@@ -46,14 +46,18 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(event) {
-    var res = this.props.postComment(this.state.email.toString(), this.state.value.toString(), this.state.idBaiHat.toString());
+    var res = this.props.postComment(this.props.user.toString(), this.state.value.toString(), this.state.idBaiHat.toString());
     this.clearCommentForm();
     event.preventDefault();
   }
 
   render() {
-    const { isAuthenticated } = this.props
+    const { isAuthenticated, user } = this.props
     if (!isAuthenticated) {
+      return null
+    }
+
+    if (!user) {
       return null
     }
 

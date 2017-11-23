@@ -30,6 +30,7 @@ const propTypes = {
   sticky: PropTypes.bool.isRequired,
   timed: PropTypes.bool.isRequired,
   toggleLike: PropTypes.func.isRequired,
+  user: PropTypes.shape({}),
 };
 
 class Song extends Component {
@@ -109,7 +110,7 @@ class Song extends Component {
               sticky={sticky}
               timed={timed}
               postComment={this.props.postComment}
-              user={this.props.user}
+              user={user}
               isAuthenticated={isAuthenticated}
             />
           </div>
