@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ArtworkPlay from '../components/ArtworkPlay';
 import Link from '../components/Link';
-import Stats from '../components/Stats';
 import Waveform from '../components/Waveform';
 import { MEMBER_PLAYLIST_PATH } from '../constants/RouterConstants';
 import IMAGE_SIZES from '../constants/ImageConstants';
