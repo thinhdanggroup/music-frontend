@@ -1,11 +1,8 @@
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 
-import * as pages from './pages'
-import * as routingPath from './routing-path'
-
-import * as redux from './redux'
+import RootContainer from './containers/RootContainer';
+import configureStore from './store/configureStore';
 
 export default class App extends Component {
   render() {
