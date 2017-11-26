@@ -21,10 +21,10 @@ const fetchSongComments = idBaiHat => async (dispatch) => {
 
 const postfetchComments = (email, noiDung, idBaiHat) => async (dispatch) => {
   var data = await callApi(`SELECT postComment('${email}','${noiDung}','${idBaiHat}')`);
-  if (data.json.status == "Fail") {
-    if (data.json.data.code == "22000")
+  if (data.json.status === "Fail") {
+    if (data.json.data.code === "22000")
         alert('Không chửi bậy nha huynh');
-    if (data.json.data.code == "22005")
+    if (data.json.data.code === "22005")
         alert('#Ngưng spam, bạn đã bị khóa mõm');
   }
   dispatch(fetchSongComments(idBaiHat))
